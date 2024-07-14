@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; // Import React separately
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Img_prop from "./Img_prop";
@@ -22,8 +22,15 @@ import {
   NodeJS,
   ExpressJS,
   AngularJS,
-  Java
-} from "../constants/Constant"; // Ensure the path is correct
+  Java,
+  PowerShell,
+  Terminal,
+  VSCode,
+  AndroidStudio,
+  Linux,
+  Flask,
+  Flutter,
+} from "../constants/Constant"; // Adjust the path as per your project structure
 
 const Skills = () => {
   useEffect(() => {
@@ -64,8 +71,20 @@ const Skills = () => {
     {
       category: "Tools & Platforms",
       skills: [
+        { img: PowerShell, name: "PowerShell" },
+        { img: Terminal, name: "Terminal" },
+        { img: VSCode, name: "VS Code" },
+        { img: AndroidStudio, name: "Android Studio" },
+        { img: Linux, name: "Linux" },
+      ],
+    },
+    {
+      category: "Technologies/Frameworks",
+      skills: [
+        { img: Flask, name: "Flask" },
+        { img: Flutter, name: "Flutter" },
         { img: Git, name: "Git" },
-        { img: Github, name: "Github" },
+        { img: Github, name: "GitHub" },
         { img: Vite, name: "Vite" },
       ],
     },
@@ -78,7 +97,7 @@ const Skills = () => {
       </h1>
       {skillCategories.map((category) => (
         <div key={category.category} className="mt-10">
-          <h2 className="text-3xl font-bold mb-5 text-[#00040f] dark:text-slate-300 text-center">
+          <h2 className="text-2xl font-bold mb-5 text-[#00040f] dark:text-slate-300 text-center">
             {category.category}
           </h2>
           <div

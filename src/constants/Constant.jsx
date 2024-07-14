@@ -18,6 +18,17 @@ import AngularJS from "../assets/Angularjs.png";
 import Java from "../assets/java.png";
 import Portfolio from "../assets/portfolio.jpg";
 import Om from "../assets/om.png";
+import WeatherApp from "../assets/WeatherApp.png";
+import RecipeApp from "../assets/RecipeApp.png";
+import PowerShell from "../assets/PowerShell.png";
+import Terminal from "../assets/Terminal.png";
+import VSCode from "../assets/VSCode.png";
+import AndroidStudio from "../assets/AndroidStudio.png";
+import Linux from "../assets/Linux.png";
+import Flask from "../assets/Flask.png";
+import Flutter from "../assets/Flutter.png";
+import crop_recommendations from "../assets/crop recommendations app.png";
+import nutrient_recommendations from "../assets/nutrient recommendations app.png";
 
 export {
   C,
@@ -39,5 +50,16 @@ export {
   Portfolio,
   Om,
   AngularJS,
-  Java
+  Java,
+  WeatherApp,
+  RecipeApp,
+  PowerShell,
+  Terminal,
+  VSCode,
+  AndroidStudio,
+  Linux,
+  Flask,
+  Flutter,
+  nutrient_recommendations,
+  crop_recommendations,
 };

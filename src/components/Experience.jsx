@@ -49,10 +49,10 @@ const Experience = () => {
               date="May 20, 2024 - June 20, 2024"
             />
             <Exp_prop
-              img={DIT}
-              title="DIT Academy"
-              subtitle="Web Development"
-              date="May 5, 2024 - June 5, 2024"
+              img={CodSoft}
+              title="CodSoft"
+              subtitle="Flutter Developer"
+              date="June 20, 2024 - July 20, 2024"
             />
           </div>
         </div>
