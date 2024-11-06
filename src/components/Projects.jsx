@@ -131,6 +131,7 @@ const Projects = () => {
             title="Weather App"
             para="Built a web app to provide real-time weather data and forecasts using Flask."
             img={WeatherApp}
+            link="https://liveweatherforecast.onrender.com/"
             github_link="https://github.com/jayeshmepani/Weather-App"
             python={
               <Tooltip title="Python" arrow>
@@ -179,6 +180,7 @@ const Projects = () => {
             title="Crop Recommendations App"
             para="Developed an web app to recommend crops based on location using Flask and Google's Gemini 1.5 Pro Model API."
             img={crop_recommendations}
+            link="https://croprecommendations.onrender.com/"
             github_link="https://github.com/jayeshmepani/Crop-Recommendations-App"
             python={
               <Tooltip title="Python" arrow>
@@ -220,6 +222,7 @@ const Projects = () => {
             title="Nutrient Recommendations App"
             para="Created an web app to provide personalized nutrient recommendations using Flask."
             img={nutrient_recommendations}
+            link="https://nutrientrecommendations.onrender.com/"
             github_link="https://github.com/jayeshmepani/Nutrient-Recommendations-App"
             python={
               <Tooltip title="Python" arrow>
