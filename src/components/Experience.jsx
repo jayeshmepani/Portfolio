@@ -6,8 +6,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import CodSoft from "../assets/codsoft.png";
-import DIT from "../assets/dit.jpg";
 import WRTeam from "../assets/wrteam.jpg";
+import Shreesoftech from "../assets/Shreesoftech.jpg";
 
 const Experience = () => {
   useEffect(() => {
@@ -34,25 +34,31 @@ const Experience = () => {
               img={WRTeam}
               title="WRTeam"
               subtitle="PHP"
-              date="May 6, 2024 - June 8, 2024"
+              date="May 2024 - June 2024"
             />
             <Exp_prop
               img={CodSoft}
               title="CodSoft"
               subtitle="Python Programming"
-              date="May 5, 2024 - June 5, 2024"
+              date="May 2024 - June 2024"
             />
             <Exp_prop
               img={CodSoft}
               title="CodSoft"
               subtitle="Data Science"
-              date="May 20, 2024 - June 20, 2024"
+              date="May 2024 - June 2024"
             />
             <Exp_prop
               img={CodSoft}
               title="CodSoft"
               subtitle="Flutter Developer"
-              date="June 20, 2024 - July 20, 2024"
+              date="June 2024 - July 2024"
+            />            
+            <Exp_prop
+              img={Shreesoftech}
+              title="Shreesoftech"
+              subtitle="Laravel Developer"
+              date="Dec 2024 - Present"
             />
           </div>
         </div>

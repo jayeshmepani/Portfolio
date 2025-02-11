@@ -26,7 +26,6 @@ const Project_prop = (props) => {
                 {props.html5}
                 {props.css3}
                 {props.javascript}
-                {props.tailwindcss}
                 {props.react}
                 {props.vite}
                 {props.python}
@@ -36,6 +35,11 @@ const Project_prop = (props) => {
                 {props.express}
                 {props.nodejs}
                 {props.nextdotjs}
+                {props.php}
+                {props.laravel}
+                {props.mysql}
+                {props.tailwindcss}
+                {props.bootstrap}
               </div>
             </div>
           </div>

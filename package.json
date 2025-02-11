@@ -16,7 +16,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.5",
     "aos": "^3.0.0-beta.6",
-    "Jayesh-Patel": "file:../Personal-Portfolio",
+    "Jayesh-Patel": "file:",
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

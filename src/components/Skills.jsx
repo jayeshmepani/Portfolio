@@ -32,7 +32,9 @@ import {
   Flask,
   Django,
   Flutter,
-} from "../constants/Constant"; // Adjust the path as per your project structure
+  Laravel,
+  Bootstrap
+} from "../constants/Constant";
 
 const Skills = () => {
   useEffect(() => {
@@ -56,6 +58,7 @@ const Skills = () => {
       skills: [
         { img: HTML, name: "HTML" },
         { img: CSS, name: "CSS" },
+        { img: Bootstrap, name: "Bootstrap" },
         { img: TailwindCSS, name: "TailwindCSS" },
         { img: react, name: "React" },
         { img: Vue, name: "Vue" },
@@ -68,6 +71,7 @@ const Skills = () => {
       skills: [
         { img: NodeJS, name: "Node.js" },
         { img: ExpressJS, name: "Express.js" },
+        { img: Laravel, name: "Laravel" },
         { img: MongoDB, name: "MongoDB" },
       ],
     },
@@ -105,7 +109,7 @@ const Skills = () => {
             {category.category}
           </h2>
           <div
-            className="IMG grid place-content-center p-5 grid-cols-3 gap-9 max-sm:p-2"
+            className="IMG grid place-content-center place-items-center p-5 grid-cols-3 gap-9 max-sm:p-2"
             data-aos="zoom-out-up"
           >
             {category.skills.map((skill) => (

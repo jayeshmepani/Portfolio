@@ -1,5 +1,5 @@
 import Project_prop from "./project_prop";
-import { Portfolio, Om, WeatherApp, RecipeApp, crop_recommendations, nutrient_recommendations, crm } from "../constants/Constant";
+import { Portfolio, Om, WeatherApp, RecipeApp, crop_recommendations, nutrient_recommendations, crm, reviewsync } from "../constants/Constant";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import AOS from "aos";
@@ -18,7 +18,11 @@ import {
   SiPlotly,
   SiExpress,
   SiNodedotjs,
-  SiNextdotjs
+  SiNextdotjs,
+  SiLaravel,
+  SiMysql,
+  SiBootstrap,
+  SiPhp
 } from "react-icons/si";
 
 const Projects = () => {
@@ -319,6 +323,69 @@ const Projects = () => {
               <Tooltip title="Flutter" arrow>
                 <IconButton>
                   <SiFlutter className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+          />
+          <Project_prop
+            title="ReviewSync"
+            para="A web application that streamlines the management of Google Business Profile reviews, enabling businesses to efficiently track and organize customer feedback."
+            img={reviewsync}
+            github_link="https://github.com/jayeshmepani/Reviewsync"
+            link="https://reviewsync.up.railway.app"
+            html5={
+              <Tooltip title="HTML" arrow>
+                <IconButton>
+                  <SiHtml5 className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            css3={
+              <Tooltip title="CSS" arrow>
+                <IconButton>
+                  <SiCss3 className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            javascript={
+              <Tooltip title="JavaScript" arrow>
+                <IconButton>
+                  <SiJavascript className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            php={
+              <Tooltip title="PHP" arrow>
+                <IconButton>
+                  <SiPhp className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            laravel={
+              <Tooltip title="Laravel" arrow>
+                <IconButton>
+                  <SiLaravel className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            mysql={
+              <Tooltip title="MySQL" arrow>
+                <IconButton>
+                  <SiMysql className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            tailwindcss={
+              <Tooltip title="Tailwind CSS" arrow>
+                <IconButton>
+                  <SiTailwindcss className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            bootstrap={
+              <Tooltip title="Bootstrap" arrow>
+                <IconButton>
+                  <SiBootstrap className="dark:text-slate-200 text-black" />
                 </IconButton>
               </Tooltip>
             }
