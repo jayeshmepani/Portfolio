@@ -33,7 +33,10 @@ import {
   Django,
   Flutter,
   Laravel,
-  Bootstrap
+  Bootstrap,
+  MySQL,
+  SQLite,
+  GitLab
 } from "../constants/Constant";
 
 const Skills = () => {
@@ -73,6 +76,8 @@ const Skills = () => {
         { img: ExpressJS, name: "Express.js" },
         { img: Laravel, name: "Laravel" },
         { img: MongoDB, name: "MongoDB" },
+        { img: SQLite, name: "SQLite" },
+        { img: MySQL, name: "MySQL" },
       ],
     },
     {
@@ -93,6 +98,7 @@ const Skills = () => {
         { img: Flutter, name: "Flutter" },
         { img: Git, name: "Git" },
         { img: Github, name: "GitHub" },
+        { img: GitLab, name: "GitLab" },
         { img: Vite, name: "Vite" },
       ],
     },

@@ -11,8 +11,8 @@ import TailwindCSS from "../assets/TailwindCSS.png";
 import react from "../assets/react.png";
 import Vue from "../assets/Vue.png";
 import MongoDB from "../assets/mongodb.png";
-import PHP from "../assets/php.png"; 
-import Bootstrap from "../assets/bootstrap.png"; 
+import PHP from "../assets/php.png";
+import Bootstrap from "../assets/bootstrap.png";
 import Laravel from "../assets/Laravel.png";
 import NodeJS from "../assets/nodejs.png";
 import ExpressJS from "../assets/expressjs.png";
@@ -35,6 +35,9 @@ import crop_recommendations from "../assets/crop recommendations app.png";
 import nutrient_recommendations from "../assets/nutrient recommendations app.png";
 import crm from "../assets/crm.png";
 import reviewsync from "../assets/reviewsync.jpg";
+import MySQL from "../assets/mysql.png";
+import SQLite from "../assets/sqlite.png";
+import GitLab from "../assets/gitlab.png";
 
 export {
   C,
@@ -73,5 +76,8 @@ export {
   crm,
   Laravel,
   Bootstrap,
-  reviewsync
+  reviewsync, 
+  MySQL,
+  SQLite,
+  GitLab
 };
