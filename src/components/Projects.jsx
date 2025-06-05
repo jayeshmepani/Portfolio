@@ -1,5 +1,5 @@
 import Project_prop from "./project_prop";
-import { Portfolio, Om, WeatherApp, RecipeApp, crop_recommendations, nutrient_recommendations, crm, reviewsync } from "../constants/Constant";
+import { Portfolio, Om, WeatherApp, RecipeApp, crop_recommendations, nutrient_recommendations, crm, reviewsync, form_validation } from "../constants/Constant";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import AOS from "aos";
@@ -329,7 +329,7 @@ const Projects = () => {
           />
           <Project_prop
             title="ReviewSync"
-            para="A web application that streamlines the management of Google Business Profile reviews, enabling businesses to efficiently track and organize customer feedback."
+            para="A web app that streamlines the management of Google Business Profile reviews, enabling businesses to efficiently track and organize customer feedback."
             img={reviewsync}
             github_link="https://github.com/jayeshmepani/Reviewsync"
             link="https://reviewsync.up.railway.app"
@@ -386,6 +386,34 @@ const Projects = () => {
               <Tooltip title="Bootstrap" arrow>
                 <IconButton>
                   <SiBootstrap className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+          />
+          <Project_prop
+            title="Realtime Form Validation"
+            para="Modern form validation with real-time visual feedback using pure HTML5 & CSS3. Showcases advanced CSS capabilities with dual password visibility implementations."
+            img={form_validation} 
+            github_link="https://github.com/jayeshmepani/validation-w-o-js"
+            link="https://validation-w-o-js.vercel.app/" 
+            html5={
+              <Tooltip title="HTML5" arrow>
+                <IconButton>
+                  <SiHtml5 className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            css3={
+              <Tooltip title="CSS3" arrow>
+                <IconButton>
+                  <SiCss3 className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            javascript={
+              <Tooltip title="JavaScript (Optional)" arrow>
+                <IconButton>
+                  <SiJavascript className="dark:text-slate-200 text-black" />
                 </IconButton>
               </Tooltip>
             }

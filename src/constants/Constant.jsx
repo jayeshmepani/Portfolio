@@ -38,12 +38,15 @@ import reviewsync from "../assets/reviewsync.jpg";
 import MySQL from "../assets/mysql.png";
 import SQLite from "../assets/sqlite.png";
 import GitLab from "../assets/gitlab.png";
+import SCSS from "../assets/scss.png";
+import form_validation from "../assets/form_validation.png";
 
 export {
   C,
   CPP,
   HTML,
   CSS,
+  SCSS,
   Github,
   Git,
   Vite,
@@ -76,8 +79,9 @@ export {
   crm,
   Laravel,
   Bootstrap,
-  reviewsync, 
+  reviewsync,
   MySQL,
   SQLite,
-  GitLab
+  GitLab,
+  form_validation
 };

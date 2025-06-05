@@ -72,7 +72,7 @@ const About = () => {
           <Wrapper>
             <div className="static-txt">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-cyan-500 dark:to-slate-200">
-                Jayesh Patel, a &nbsp;
+                Jayesh Patel, &nbsp;
               </span>
             </div>
             <div className="dynamic-txts">{part}</div>
