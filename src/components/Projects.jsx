@@ -1,4 +1,4 @@
-import Project_prop from "./project_prop";
+import Project_prop from "./Project_prop";
 import { Portfolio, Om, WeatherApp, RecipeApp, crop_recommendations, nutrient_recommendations, crm, reviewsync, form_validation } from "../constants/Constant";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
