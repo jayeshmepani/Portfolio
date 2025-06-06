@@ -332,7 +332,6 @@ const Projects = () => {
             para="A web app that streamlines the management of Google Business Profile reviews, enabling businesses to efficiently track and organize customer feedback."
             img={reviewsync}
             github_link="https://github.com/jayeshmepani/Reviewsync"
-            link="https://reviewsync.up.railway.app"
             html5={
               <Tooltip title="HTML" arrow>
                 <IconButton>
