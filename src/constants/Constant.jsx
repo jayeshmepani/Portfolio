@@ -20,7 +20,7 @@ import AngularJS from "../assets/Angularjs.png";
 import NextJS from "../assets/next-js.png";
 import Java from "../assets/java.png";
 import Portfolio from "../assets/portfolio.jpg";
-import Om from "../assets/om.png";
+import Om from "../assets/Om.png";
 import WeatherApp from "../assets/WeatherApp.png";
 import RecipeApp from "../assets/RecipeApp.png";
 import PowerShell from "../assets/PowerShell.png";
