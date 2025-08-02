@@ -40,6 +40,8 @@ const Project_prop = (props) => {
                 {props.mysql}
                 {props.tailwindcss}
                 {props.bootstrap}
+                {props.axios}
+                {props.fastapi}
               </div>
             </div>
           </div>

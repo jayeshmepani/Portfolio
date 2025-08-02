@@ -40,6 +40,9 @@ import SQLite from "../assets/sqlite.png";
 import GitLab from "../assets/gitlab.png";        
 import SCSS from "../assets/scss.png";            
 import form_validation from "../assets/form_validation.png";
+import FastAPI from "../assets/fastapi.png";
+import Laravel_gemini_translation from "../assets/laravel-translations.png";
+import Grayscaler from "../assets/grayscaler.png";
 
 
 export {
@@ -84,5 +87,8 @@ export {
   MySQL,
   SQLite,
   GitLab,
-  form_validation
+  form_validation,
+  FastAPI,
+  Laravel_gemini_translation,
+  Grayscaler
 };

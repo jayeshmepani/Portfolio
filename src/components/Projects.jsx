@@ -1,5 +1,5 @@
 import Project_prop from "./Project_prop";
-import { Portfolio, Om, WeatherApp, RecipeApp, crop_recommendations, nutrient_recommendations, crm, reviewsync, form_validation } from "../constants/Constant";
+import { Portfolio, Om, WeatherApp, RecipeApp, crop_recommendations, nutrient_recommendations, crm, reviewsync, form_validation, Laravel_gemini_translation, Grayscaler } from "../constants/Constant";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from "@mui/material/IconButton";
 import AOS from "aos";
@@ -22,16 +22,18 @@ import {
   SiLaravel,
   SiMysql,
   SiBootstrap,
-  SiPhp
+  SiPhp,
+  SiFastapi,
+  SiAxios,
 } from "react-icons/si";
 
 const Projects = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration in milliseconds
-      easing: 'ease-in-out', // Easing function for the animation
-      once: true, // Whether animation should happen only once
-      mirror: false, // Whether elements should animate out while scrolling past them
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false,
     });
   }, []);
   return (
@@ -392,9 +394,9 @@ const Projects = () => {
           <Project_prop
             title="Realtime Form Validation"
             para="Modern form validation with real-time visual feedback using pure HTML5 & CSS3. Showcases advanced CSS capabilities with dual password visibility implementations."
-            img={form_validation} 
+            img={form_validation}
             github_link="https://github.com/jayeshmepani/validation-w-o-js"
-            link="https://validation-w-o-js.vercel.app/" 
+            link="https://validation-w-o-js.vercel.app/"
             html5={
               <Tooltip title="HTML5" arrow>
                 <IconButton>
@@ -413,6 +415,81 @@ const Projects = () => {
               <Tooltip title="JavaScript (Optional)" arrow>
                 <IconButton>
                   <SiJavascript className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+          />
+          <Project_prop
+            title="Laravel Gemini AI Translation Extractor"
+            para="An Artisan CLI tool that extracts Laravel translation keys and auto-translates them using Google's Gemini API with concurrency, batching, and custom file handling."
+            img={Laravel_gemini_translation}
+            github_link="https://github.com/jayeshmepani/laravel-gemini-translator"
+            php={
+              <Tooltip title="PHP" arrow>
+                <IconButton>
+                  <SiPhp className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            laravel={
+              <Tooltip title="Laravel" arrow>
+                <IconButton>
+                  <SiLaravel className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+          />
+          <Project_prop
+            title="Enhanced Precision Grayscale Converter (Web)"
+            para="A web-based image converter offering multiple grayscale modes with high precision, EXIF/ICC support, real-time preview, and zero external uploads."
+            img={Grayscaler}
+            github_link="https://github.com/jayeshmepani/PrecisionGrayscaleConverter-Web"
+            link="https://precisiongrayscaleconverter-web.onrender.com/"
+            python={
+              <Tooltip title="Python" arrow>
+                <IconButton>
+                  <SiPython className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            html5={
+              <Tooltip title="HTML5" arrow>
+                <IconButton>
+                  <SiHtml5 className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            css3={
+              <Tooltip title="CSS3" arrow>
+                <IconButton>
+                  <SiCss3 className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            javascript={
+              <Tooltip title="JavaScript" arrow>
+                <IconButton>
+                  <SiJavascript className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+            fastapi={
+              <Tooltip title="FastAPI" arrow>
+                <IconButton>
+                  <SiFastapi className="dark:text-slate-200 text-black" />
+                </IconButton>
+              </Tooltip>
+            }
+          />
+          <Project_prop
+            title="Enhanced Precision Grayscale Converter (Desktop)"
+            para="Desktop image processing app built with CustomTkinter supporting high-bit-depth grayscale conversions, batch processing, and standalone installer builds."
+            img={Grayscaler}
+            github_link="https://github.com/jayeshmepani/PrecisionGrayscaleConverter"
+            python={
+              <Tooltip title="Python" arrow>
+                <IconButton>
+                  <SiPython className="dark:text-slate-200 text-black" />
                 </IconButton>
               </Tooltip>
             }

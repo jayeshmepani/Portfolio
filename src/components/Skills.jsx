@@ -37,7 +37,8 @@ import {
   Bootstrap,
   MySQL,
   SQLite,
-  GitLab
+  GitLab,
+  FastAPI
 } from "../constants/Constant";
 
 const Skills = () => {
@@ -96,6 +97,7 @@ const Skills = () => {
       category: "Technologies/Frameworks",
       skills: [
         { img: Flask, name: "Flask" },
+        { img: FastAPI, name: "FastAPI" },
         { img: Django, name: "Django" },
         { img: Flutter, name: "Flutter" },
         { img: Git, name: "Git" },
