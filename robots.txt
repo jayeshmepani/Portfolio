@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://jayeshmepani.github.io/Portfolio/sitemap.xml
