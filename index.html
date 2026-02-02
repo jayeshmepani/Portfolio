@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
@@ -29,19 +30,20 @@
     <meta name="theme-color" content="#2dd4bf">
     <meta name="google-site-verification" content="a9pqPdqRz4bZLCDsSCCF-rZUzF6ajeqMCOcV28W6vHU" />
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJS2PYKXEE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJS2PYKXEE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-ZJS2PYKXEE');
-</script>
+        gtag('config', 'G-ZJS2PYKXEE');
+    </script>
     <style>
         :root {
             --void: oklch(12.633% 0.06241 314.512);
             --teal: oklch(71% .11 180)
         }
+
         #loader {
             position: fixed;
             inset: 0;
@@ -53,17 +55,22 @@
             justify-content: center;
             transition: opacity 1s
         }
+
         .text-primary {
             color: var(--teal)
         }
+
         .animate-pulse {
             animation: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite
         }
+
         @keyframes pulse {
+
             0%,
             100% {
                 opacity: 1
             }
+
             50% {
                 opacity: .5
             }
@@ -82,7 +89,92 @@
     <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
     <script src="assets/vendor/lenis.min.js" defer></script>
     <script src="assets/vendor/lottie-player.js" defer></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jayesh Patel",
+      "givenName": "Jayesh",
+      "familyName": "Patel",
+      "alternateName": "Jayesh Mepani",
+      "url": "https://jayeshmepani.github.io/Portfolio/",
+      "image": "https://jayeshmepani.github.io/Portfolio/assets/img/portfolio.png",
+      "jobTitle": "Full-Stack Developer",
+      "description": "Creative technologist and Full-Stack Developer specializing in high-performance web experiences, 3D animations, and AI-driven solutions.",
+      "email": "jayeshmepani777@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kutch",
+        "addressRegion": "Gujarat",
+        "addressCountry": "IN"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Parul University"
+      },
+      "worksFor": [
+        {
+            "@type": "Organization",
+            "name": "Shreesoftech"
+        }
+      ],
+      "sameAs": [
+        "https://github.com/jayeshmepani",
+        "https://www.linkedin.com/in/jayesh-patel-1111111j/",
+        "https://www.instagram.com/jayumepani/",
+        "https://github.com/jayeshmepani/Portfolio/blob/main/resume.pdf"
+      ],
+      "knowsAbout": [
+        {
+          "@type": "Thing",
+          "name": "Software Engineering",
+          "sameAs": "https://www.wikidata.org/wiki/Q80993"
+        },
+        {
+          "@type": "Thing",
+          "name": "Full Stack Development",
+          "sameAs": "https://www.wikidata.org/wiki/Q386275"
+        },
+        {
+          "@type": "Thing",
+          "name": "Artificial Intelligence",
+          "sameAs": "https://www.wikidata.org/wiki/Q11660"
+        },
+        {
+          "@type": "Thing",
+          "name": "Machine Learning",
+          "sameAs": "https://www.wikidata.org/wiki/Q2539"
+        },
+        {
+          "@type": "Thing",
+          "name": "Mobile app development",
+          "sameAs": "https://www.wikidata.org/wiki/Q41689"
+        },
+        {
+          "@type": "Thing",
+          "name": "DevOps",
+          "sameAs": "https://www.wikidata.org/wiki/Q3026366"
+        },
+        {
+          "@type": "Thing",
+          "name": "Computer Security",
+          "sameAs": "https://www.wikidata.org/wiki/Q3566141"
+        },
+        {
+          "@type": "Thing",
+          "name": "Computer Graphics",
+          "sameAs": "https://www.wikidata.org/wiki/Q189177"
+        },
+        {
+          "@type": "Thing",
+          "name": "Computer Science",
+          "sameAs": "https://www.wikidata.org/wiki/Q21198"
+        }
+      ]
+    }
+    </script>
 </head>
+
 <body
     class="bg-nebula-bg text-white overflow-x-hidden antialiased selection:bg-primary/30 selection:text-white relative leading-relaxed">
     <div id="loader"
@@ -488,8 +580,9 @@
                                     <div
                                         class="flex flex-col md:flex-row md:items-center gap-4 mb-4 border-b border-white/5 pb-4">
                                         <div class="company-logo-container timeline-education-logo-container">
-                                            <img src="assets/img/Parul-University.webp" class="company-logo relative z-10"
-                                                alt="Parul University Campus" loading="lazy" decoding="async">
+                                            <img src="assets/img/Parul-University.webp"
+                                                class="company-logo relative z-10" alt="Parul University Campus"
+                                                loading="lazy" decoding="async">
                                         </div>
                                         <div class="flex-1 relative">
                                             <div class="absolute right-0 top-0 w-16 h-16 opacity-50 -mt-2 -mr-2">
@@ -1294,4 +1387,3 @@
 </body>
 
 </html>
-
