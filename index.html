@@ -83,6 +83,15 @@
                 opacity: .5
             }
         }
+
+        .project-card-violet:hover  { border-color: rgb(167 139 250 / .5); }
+        .project-card-indigo:hover  { border-color: rgb(129 140 248 / .5); }
+        .project-card-teal2:hover   { border-color: rgb(45  212 191 / .5); }
+        .project-card-fuchsia:hover { border-color: rgb(232 121 249 / .5); }
+        .group:hover .group-hover\:text-violet-400  { color: rgb(167 139 250); }
+        .group:hover .group-hover\:text-indigo-400  { color: rgb(129 140 248); }
+        .group:hover .group-hover\:text-teal-400    { color: rgb(45  212 191); }
+        .group:hover .group-hover\:text-fuchsia-400 { color: rgb(232 121 249); }
     </style>
     <link rel="preload" href="assets/lottie/Loading (1).json" as="fetch" crossorigin>
     <link
@@ -735,10 +744,10 @@
                                 <i class="devicon-angularjs-plain text-red-500" aria-hidden="true"></i> Angular
                             </li>
                             <li class="skill-badge">
-                                <i class="devicon-html5-plain text-orange-500" aria-hidden="true"></i> HTML5
+                                <i class="devicon-html5-plain text-orange-500" aria-hidden="true"></i> HTML
                             </li>
                             <li class="skill-badge">
-                                <i class="devicon-css3-plain text-blue-500" aria-hidden="true"></i> CSS3
+                                <i class="devicon-css3-plain text-blue-500" aria-hidden="true"></i> CSS
                             </li>
                             <li class="skill-badge">
                                 <i class="devicon-tailwindcss-original text-cyan-400" aria-hidden="true"></i> Tailwind
@@ -751,9 +760,6 @@
                             </li>
                             <li class="skill-badge">
                                 <i class="devicon-sass-original text-pink-400" aria-hidden="true"></i> SCSS
-                            </li>
-                            <li class="skill-badge">
-                                <i class="devicon-jquery-plain text-blue-400" aria-hidden="true"></i> jQuery
                             </li>
                             <li class="skill-badge">
                                 <i class="devicon-threejs-original text-white" aria-hidden="true"></i> Three.js
@@ -823,9 +829,6 @@
                             </li>
                             <li class="skill-badge">
                                 <i class="ri-bar-chart-line text-blue-300" aria-hidden="true"></i> Plotly
-                            </li>
-                            <li class="skill-badge">
-                                <i class="ri-google-fill" aria-hidden="true"></i> Gemini API
                             </li>
                         </ul>
                     </div>
@@ -964,40 +967,6 @@
                     <div class="font-technical text-xs text-white/50 tracking-widest">FEATURED & ARCHIVE</div>
                 </div>
                 <div class="grid gap-6 project-grid-layout">
-                    <article aria-labelledby="project-1-title"
-                        class="project-card-compact-base project-card-orange group reveal-up project-card-compact">
-                        <div class="flex">
-                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
-                                <img src="assets/img/reviewsync.webp"
-                                    class="w-full h-full object-cover transition-transform duration-700 project-card-image"
-                                    alt="ReviewSync Preview" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex-1 p-3">
-                                <div class="flex items-start justify-between gap-2 mb-1">
-                                    <h3 id="project-1-title"
-                                        class="text-base font-bold text-white font-syne group-hover:text-orange-400 transition-colors">
-                                        ReviewSync</h3>
-                                    <span
-                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-orange-400/10 text-orange-400 border border-orange-400/20 whitespace-nowrap">Web</span>
-                                </div>
-                                <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
-                                    <span>Laravel</span><span>•</span><span>PHP</span><span>•</span><span>MySQL</span><span>•</span><span>Google
-                                        APIs</span><span>•</span><span>Tailwind</span><span>•</span><span>Bootstrap</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Enterprise
-                                review aggregation & analytics platform for Google Business Profile reviews with
-                                sentiment analysis.</p>
-                            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                                <a href="https://github.com/jayeshmepani/Reviewsync" target="_blank"
-                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="View ReviewSync source code on GitHub">
-                                    <i class="devicon-github-original" aria-hidden="true"></i> Code</a>
-                            </div>
-                        </div>
-                    </article>
                     <article aria-labelledby="project-2-title"
                         class="group relative border border-white/10 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-500 reveal-up flex flex-col project-card-compact">
                         <div class="flex">
@@ -1050,18 +1019,17 @@
                                         class="text-base font-bold text-white font-syne group-hover:text-orange-400 transition-colors">
                                         Hindu Scriptures</h3>
                                     <span
-                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-orange-400/10 text-orange-400 border border-orange-400/20 whitespace-nowrap">Web</span>
+                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-orange-400/10 text-orange-400 border border-orange-400/20 whitespace-nowrap">Web & App</span>
                                 </div>
                                 <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
                                     <span>Node.js</span><span>•</span><span>Express</span><span>•</span><span>Gemini
-                                        AI</span><span>•</span><span>JavaScript</span>
+                                        AI</span><span>•</span><span>Java</span><span>•</span><span>Android</span>
                                 </div>
                             </div>
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">AI-powered
-                                spiritual text search & translation platform with scripture search and multilingual
-                                support.</p>
+                                spiritual text search & translation platform available on Web and Android with multilingual support.</p>
                             <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
                                 <a href="https://hinduscriptures.onrender.com" target="_blank"
                                     class="px-3 py-1 bg-orange-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
@@ -1070,7 +1038,15 @@
                                 <a href="https://github.com/jayeshmepani/HinduScriptures/" target="_blank"
                                     class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
                                     aria-label="View Hindu Scriptures source code on GitHub">
-                                    <i class="devicon-github-original" aria-hidden="true"></i> Code</a>
+                                    <i class="devicon-github-original" aria-hidden="true"></i> Web Code</a>
+                                <a href="https://github.com/jayeshmepani/hindu-scripture-apk" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Hindu Scripture App source code on GitHub">
+                                    <i class="devicon-github-original" aria-hidden="true"></i> App Source</a>
+                                <a href="https://github.com/jayeshmepani/HinduScriptures/releases" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-green-400 text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="Download Hindu Scripture App APK from GitHub Releases">
+                                    <i class="devicon-android-plain" aria-hidden="true"></i> APK</a>
                             </div>
                         </div>
                     </article>
@@ -1112,70 +1088,30 @@
                             </div>
                         </div>
                     </article>
-                    <article aria-labelledby="project-5-title"
-                        class="project-card-compact-base project-card-blue group reveal-up project-card-compact">
-                        <div class="flex">
-                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
-                                <img src="assets/img/WeatherApp.webp"
-                                    class="w-full h-full object-cover transition-transform duration-700 project-card-image"
-                                    alt="Weather App Preview" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex-1 p-3">
-                                <div class="flex items-start justify-between gap-2 mb-1">
-                                    <h3 id="project-5-title"
-                                        class="text-base font-bold text-white font-syne group-hover:text-blue-400 transition-colors">
-                                        Weather App</h3>
-                                    <span
-                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-blue-400/10 text-blue-400 border border-blue-400/20 whitespace-nowrap">AI</span>
-                                </div>
-                                <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
-                                    <span>Python</span><span>•</span><span>Flask</span><span>•</span><span>Plotly</span><span>•</span><span>OpenWeather
-                                        API</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Real-time
-                                meteorological intelligence platform with interactive weather forecasting and data
-                                visualization.</p>
-                            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                                <a href="https://liveweatherforecast.onrender.com/" target="_blank"
-                                    class="px-3 py-1 bg-blue-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="View Weather App live site">
-                                    <i class="ri-external-link-line" aria-hidden="true"></i> Live</a>
-                                <a href="https://github.com/jayeshmepani/Weather-App" target="_blank"
-                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="View Weather App source code on GitHub">
-                                    <i class="devicon-github-original" aria-hidden="true"></i> Code</a>
-                            </div>
-                        </div>
-                    </article>
                     <article aria-labelledby="project-6-title"
                         class="group relative border border-white/10 rounded-xl overflow-hidden hover:border-gray-400/50 transition-all duration-500 reveal-up flex flex-col project-card-compact">
                         <div class="flex">
                             <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
                                 <img src="assets/img/grayscaler.webp"
                                     class="w-full h-full object-cover transition-transform duration-700 project-card-image"
-                                    alt="Grayscale Web Preview" loading="lazy" decoding="async">
+                                    alt="Grayscale Preview" loading="lazy" decoding="async">
                             </div>
                             <div class="flex-1 p-3">
                                 <div class="flex items-start justify-between gap-2 mb-1">
                                     <h3 id="project-6-title"
                                         class="text-base font-bold text-white font-syne group-hover:text-gray-400 transition-colors">
-                                        Grayscale Web</h3>
+                                        Grayscale</h3>
                                     <span
-                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-gray-400/10 text-gray-400 border border-gray-400/20 whitespace-nowrap">Img</span>
+                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-gray-400/10 text-gray-400 border border-gray-400/20 whitespace-nowrap">Web & Desktop</span>
                                 </div>
                                 <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
-                                    <span>Python</span><span>•</span><span>FastAPI</span><span>•</span><span>OpenCV</span><span>•</span><span>Tailwind
-                                        CSS</span>
+                                    <span>Python</span><span>•</span><span>FastAPI</span><span>•</span><span>OpenCV</span><span>•</span><span>CustomTkinter</span>
                                 </div>
                             </div>
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">
-                                Multi-algorithm image processing with precision grayscale conversion, EXIF/ICC support &
-                                real-time preview.</p>
+                                Multi-algorithm image processing with precision grayscale conversion, available as a web service and desktop GUI.</p>
                             <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
                                 <a href="https://precisiongrayscaleconverter-web.onrender.com/" target="_blank"
                                     class="px-3 py-1 bg-gray-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
@@ -1185,7 +1121,11 @@
                                     target="_blank"
                                     class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
                                     aria-label="View Grayscale Web source code on GitHub">
-                                    <i class="devicon-github-original" aria-hidden="true"></i> Code</a>
+                                    <i class="devicon-github-original" aria-hidden="true"></i> Web Code</a>
+                                <a href="https://github.com/jayeshmepani/PrecisionGrayscaleConverter" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Grayscale Desktop source code on GitHub">
+                                    <i class="devicon-github-original" aria-hidden="true"></i> Desktop Code</a>
                             </div>
                         </div>
                     </article>
@@ -1216,6 +1156,10 @@
                                 Enterprise-grade Artisan CLI tool for extracting & auto-translating Laravel keys with
                                 concurrency & batching.</p>
                             <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                                <a href="https://jayeshmepani.github.io/laravel-gemini-translator/" target="_blank"
+                                    class="px-3 py-1 bg-red-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Laravel Translator documentation">
+                                    <i class="ri-external-link-line" aria-hidden="true"></i> Docs</a>
                                 <a href="https://github.com/jayeshmepani/laravel-gemini-translator" target="_blank"
                                     class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
                                     aria-label="View Laravel Translator source code on GitHub">
@@ -1225,43 +1169,6 @@
                                     class="px-3 py-1 bg-white/10 text-red-500 text-[10px] font-bold rounded-full hover:bg-white hover:text-red-600 transition-colors flex items-center gap-1 font-technical uppercase"
                                     aria-label="View Laravel Translator on Packagist">
                                     <i class="ri-box-3-line" aria-hidden="true"></i> Packagist</a>
-                            </div>
-                        </div>
-                    </article>
-                    <article aria-labelledby="project-8a-title"
-                        class="group relative border border-white/10 rounded-xl overflow-hidden hover:border-green-400/50 transition-all duration-500 reveal-up flex flex-col project-card-compact">
-                        <div class="flex">
-                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
-                                <img src="assets/img/Om.webp"
-                                    class="w-full h-full object-cover transition-transform duration-700 project-card-image"
-                                    alt="Hindu Scriptures App Preview" loading="lazy" decoding="async">
-                            </div>
-                            <div class="flex-1 p-3">
-                                <div class="flex items-start justify-between gap-2 mb-1">
-                                    <h3 id="project-8a-title"
-                                        class="text-base font-bold text-white font-syne group-hover:text-green-400 transition-colors">
-                                        Hindu Scriptures App</h3>
-                                    <span
-                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-green-400/10 text-green-400 border border-green-400/20 whitespace-nowrap">Mobile</span>
-                                </div>
-                                <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
-                                    <span>Java</span><span>•</span><span>Android
-                                        Studio</span><span>•</span><span>WebView</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-3 flex flex-col flex-grow">
-                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Native
-                                Android app for spiritual text exploration with seamless WebView integration.</p>
-                            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                                <a href="https://github.com/jayeshmepani/hindu-scripture-apk" target="_blank"
-                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="View Hindu Scripture App source code on GitHub">
-                                    <i class="devicon-github-original" aria-hidden="true"></i> Source</a>
-                                <a href="https://github.com/jayeshmepani/HinduScriptures/releases" target="_blank"
-                                    class="px-3 py-1 bg-white/10 text-green-400 text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="Download Hindu Scripture App APK from GitHub Releases">
-                                    <i class="devicon-android-plain" aria-hidden="true"></i> APK</a>
                             </div>
                         </div>
                     </article>
@@ -1298,72 +1205,153 @@
                             </div>
                         </div>
                     </article>
-                    <article aria-labelledby="project-10-title"
-                        class="group relative border border-white/10 rounded-xl overflow-hidden hover:border-gray-300/50 transition-all duration-500 reveal-up flex flex-col project-card-compact">
+                    <article aria-labelledby="project-12-title"
+                        class="project-card-compact-base project-card-violet group reveal-up project-card-compact">
                         <div class="flex">
                             <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
-                                <img src="assets/img/grayscaler.webp"
+                                <img src="assets/img/panchang-core.webp"
                                     class="w-full h-full object-cover transition-transform duration-700 project-card-image"
-                                    alt="Grayscale Desktop Preview" loading="lazy" decoding="async">
+                                    alt="Panchang Core Preview" loading="lazy" decoding="async">
                             </div>
                             <div class="flex-1 p-3">
                                 <div class="flex items-start justify-between gap-2 mb-1">
-                                    <h3 id="project-10-title"
-                                        class="text-base font-bold text-white font-syne group-hover:text-gray-300 transition-colors">
-                                        Grayscale Desktop</h3>
+                                    <h3 id="project-12-title"
+                                        class="text-base font-bold text-white font-syne group-hover:text-violet-400 transition-colors">
+                                        Panchang Core</h3>
                                     <span
-                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-gray-300/10 text-gray-300 border border-gray-300/20 whitespace-nowrap">Img</span>
+                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-violet-400/10 text-violet-400 border border-violet-400/20 whitespace-nowrap">PHP Pkg</span>
                                 </div>
                                 <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
-                                    <span>Python</span><span>•</span><span>CustomTkinter</span><span>•</span><span>PIL</span>
+                                    <span>PHP</span><span>•</span><span>FFI</span><span>•</span><span>Swiss Ephemeris</span><span>•</span><span>Laravel</span>
                                 </div>
                             </div>
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
-                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Desktop GUI
-                                for batch image processing with high-bit-depth grayscale conversions & standalone
-                                installer.</p>
+                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Authentic Vedic Panchanga engine powered by Swiss Ephemeris FFI. Delivers 0.001" astronomical precision across 237 localized festivals, canonical Tithi, and deep Karmakala/Muhūrta time evaluations.</p>
                             <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                                <a href="https://github.com/jayeshmepani/PrecisionGrayscaleConverter" target="_blank"
+                                <a href="https://jayeshmepani.github.io/panchang-core/" target="_blank"
+                                    class="px-3 py-1 bg-violet-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Panchang Core documentation">
+                                    <i class="ri-external-link-line" aria-hidden="true"></i> Docs</a>
+                                <a href="https://github.com/jayeshmepani/panchang-core" target="_blank"
                                     class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="View Grayscale Desktop source code on GitHub">
-                                    <i class="devicon-github-original" aria-hidden="true"></i> Repo</a>
+                                    aria-label="View Panchang Core source code on GitHub">
+                                    <i class="devicon-github-original" aria-hidden="true"></i> GitHub</a>
+                                <a href="https://packagist.org/packages/jayeshmepani/panchang-core" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-violet-400 text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Panchang Core on Packagist">
+                                    <i class="ri-box-3-line" aria-hidden="true"></i> Packagist</a>
                             </div>
                         </div>
                     </article>
-                    <article aria-labelledby="project-11-title"
-                        class="project-card-compact-base project-card-yellow group reveal-up project-card-compact">
+                    <article aria-labelledby="project-13-title"
+                        class="project-card-compact-base project-card-indigo group reveal-up project-card-compact">
                         <div class="flex">
-                            <div
-                                class="w-24 h-24 flex-shrink-0 overflow-hidden flex items-center justify-center project-card-image project-card-placeholder-bg">
-                                <span class="text-yellow-400/40 text-2xl font-bold" aria-hidden="true">&lt;/&gt;</span>
+                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
+                                <img src="assets/img/swiss-ephemeris.webp"
+                                    class="w-full h-full object-cover transition-transform duration-700 project-card-image"
+                                    alt="Swiss Ephemeris PHP Preview" loading="lazy" decoding="async">
                             </div>
                             <div class="flex-1 p-3">
                                 <div class="flex items-start justify-between gap-2 mb-1">
-                                    <h3 id="project-11-title"
-                                        class="text-base font-bold text-white font-syne group-hover:text-yellow-400 transition-colors">
-                                        Form Validation</h3>
+                                    <h3 id="project-13-title"
+                                        class="text-base font-bold text-white font-syne group-hover:text-indigo-400 transition-colors">
+                                        Swiss Ephemeris PHP</h3>
                                     <span
-                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-yellow-400/10 text-yellow-400 border border-yellow-400/20 whitespace-nowrap">Web</span>
+                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-indigo-400/10 text-indigo-400 border border-indigo-400/20 whitespace-nowrap">PHP FFI</span>
                                 </div>
                                 <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
-                                    <span>HTML5</span><span>•</span><span>CSS3</span><span>•</span><span>JavaScript</span>
+                                    <span>PHP</span><span>•</span><span>FFI</span><span>•</span><span>C Library</span><span>•</span><span>Laravel</span>
                                 </div>
                             </div>
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
-                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">CSS-only
-                                realtime validation demonstrating advanced CSS capabilities with optional JavaScript
-                                enhancements.</p>
+                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Zero-abstraction
+                                1:1 PHP FFI wrapper for the Swiss Ephemeris C library — 106 functions, verified
+                                bit-level parity, prebuilt cross-platform binaries.</p>
                             <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                                <a href="https://validation-w-o-js.vercel.app/" target="_blank"
-                                    class="px-3 py-1 bg-yellow-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="View Form Validation live site">
-                                    <i class="ri-external-link-line" aria-hidden="true"></i> Live</a>
-                                <a href="https://github.com/jayeshmepani/validation-w-o-js" target="_blank"
+                                <a href="https://jayeshmepani.github.io/Swiss-Ephemeris-PHP/" target="_blank"
+                                    class="px-3 py-1 bg-indigo-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Swiss Ephemeris PHP documentation">
+                                    <i class="ri-external-link-line" aria-hidden="true"></i> Docs</a>
+                                <a href="https://github.com/jayeshmepani/Swiss-Ephemeris-PHP" target="_blank"
                                     class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
-                                    aria-label="View Form Validation source code on GitHub">
-                                    <i class="devicon-github-original" aria-hidden="true"></i> Code</a>
+                                    aria-label="View Swiss Ephemeris PHP source code on GitHub">
+                                    <i class="devicon-github-original" aria-hidden="true"></i> GitHub</a>
+                                <a href="https://packagist.org/packages/jayeshmepani/swiss-ephemeris-ffi" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-indigo-400 text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Swiss Ephemeris PHP on Packagist">
+                                    <i class="ri-box-3-line" aria-hidden="true"></i> Packagist</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article aria-labelledby="project-14-title"
+                        class="project-card-compact-base project-card-teal2 group reveal-up project-card-compact">
+                        <div class="flex">
+                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
+                                <img src="assets/img/postalkit.webp"
+                                    class="w-full h-full object-cover transition-transform duration-700 project-card-image"
+                                    alt="PostalKit Preview" loading="lazy" decoding="async">
+                            </div>
+                            <div class="flex-1 p-3">
+                                <div class="flex items-start justify-between gap-2 mb-1">
+                                    <h3 id="project-14-title"
+                                        class="text-base font-bold text-white font-syne group-hover:text-teal-400 transition-colors">
+                                        PostalKit</h3>
+                                    <span
+                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-teal-400/10 text-teal-400 border border-teal-400/20 whitespace-nowrap">PyPI</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
+                                    <span>Python</span><span>•</span><span>ctypes</span><span>•</span><span>FFI</span><span>•</span><span>libpostal</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Zero-setup
+                                1:1 C-FFI Python wrapper for libpostal — 46 functions, auto-downloads prebuilt
+                                binaries &amp; ~2GB ML models. No C compilation needed.</p>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                                <a href="https://pypi.org/project/postalkit/" target="_blank"
+                                    class="px-3 py-1 bg-teal-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View PostalKit on PyPI">
+                                    <i class="ri-external-link-line" aria-hidden="true"></i> PyPI</a>
+                                <a href="https://github.com/jayeshmepani/libpostal-ffi-python" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View PostalKit source code on GitHub">
+                                    <i class="devicon-github-original" aria-hidden="true"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article aria-labelledby="project-15-title"
+                        class="project-card-compact-base project-card-fuchsia group reveal-up project-card-compact">
+                        <div class="flex">
+                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
+                                <img src="assets/img/poetry-analyzer.webp"
+                                    class="w-full h-full object-cover transition-transform duration-700 project-card-image"
+                                    alt="Poetry Analyzer Preview" loading="lazy" decoding="async">
+                            </div>
+                            <div class="flex-1 p-3">
+                                <div class="flex items-start justify-between gap-2 mb-1">
+                                    <h3 id="project-15-title"
+                                        class="text-base font-bold text-white font-syne group-hover:text-fuchsia-400 transition-colors">
+                                        Poetry Analyzer</h3>
+                                    <span
+                                        class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-fuchsia-400/10 text-fuchsia-400 border border-fuchsia-400/20 whitespace-nowrap">AI NLP</span>
+                                </div>
+                                <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
+                                    <span>Python</span><span>•</span><span>FastAPI</span><span>•</span><span>PyTorch</span><span>•</span><span>HuggingFace</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-3 flex flex-col flex-grow">
+                            <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">Literary &amp;
+                                linguistic analysis engine for poetry — 1.5GB Transformer models, spaCy, Stanza,
+                                Indic NLP, rhyme/meter/phonology analysis.</p>
+                            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                                <a href="https://github.com/jayeshmepani/poetry-analyzer-app" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View Poetry Analyzer source code on GitHub">
+                                    <i class="devicon-github-original" aria-hidden="true"></i> GitHub</a>
                             </div>
                         </div>
                     </article>
