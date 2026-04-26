@@ -92,6 +92,19 @@
         .group:hover .group-hover\:text-indigo-400  { color: rgb(129 140 248); }
         .group:hover .group-hover\:text-teal-400    { color: rgb(45  212 191); }
         .group:hover .group-hover\:text-fuchsia-400 { color: rgb(232 121 249); }
+
+
+        #webgl-canvas { will-change: transform; }
+        .hero-title, .hero-content { will-change: transform, opacity; }
+        .reveal-up, .stagger-item, .glass-card { will-change: transform, opacity; }
+        .section-reveal > h2,
+        .section-reveal > div > .font-technical { will-change: transform, opacity; }
+
+        #journey, #arsenal, #work {
+            content-visibility: auto;
+            contain-intrinsic-size: 0 800px;
+        }
+        body { font-display: optional; }
     </style>
     <link rel="preload" href="assets/lottie/Loading (1).json" as="fetch" crossorigin>
     <link
