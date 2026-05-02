@@ -1316,29 +1316,31 @@
                             <div class="w-24 h-24 flex-shrink-0 overflow-hidden">
                                 <img src="assets/img/swiss-ephemeris.webp"
                                     class="w-full h-full object-cover transition-transform duration-700 project-card-image"
-                                    alt="Swiss Ephemeris PHP Preview" loading="lazy" decoding="async">
+                                    alt="Swiss Ephemeris FFI Preview" loading="lazy" decoding="async">
                             </div>
                             <div class="flex-1 p-3">
                                 <div class="flex items-start justify-between gap-2 mb-1">
                                     <h3 id="project-13-title"
                                         class="text-base font-bold text-white font-syne group-hover:text-indigo-400 transition-colors">
-                                        Swiss Ephemeris PHP</h3>
+                                        Swiss Ephemeris FFI</h3>
                                     <span
                                         class="px-2 py-0.5 rounded-full text-[10px] font-bold font-technical bg-indigo-400/10 text-indigo-400 border border-indigo-400/20 whitespace-nowrap">PHP
-                                        FFI</span>
+                                        + Python</span>
                                 </div>
                                 <div class="flex flex-wrap gap-1 text-[10px] font-technical text-white/60">
-                                    <span>PHP</span><span>•</span><span>FFI</span><span>•</span><span>C
+                                    <span>PHP</span><span>•</span><span>Python</span><span>•</span><span>ctypes</span><span>•</span><span>FFI</span><span>•</span><span>C
                                         Library</span><span>•</span><span>Laravel</span>
                                 </div>
                             </div>
                         </div>
                         <div class="p-3 flex flex-col flex-grow">
                             <p class="text-white/80 text-xs font-geometric leading-relaxed mb-3 flex-grow">
-                                Zero-abstraction
-                                1:1 PHP FFI wrapper for the Swiss Ephemeris C library — 106 functions, verified
-                                bit-level parity, prebuilt cross-platform binaries.</p>
+                                Sibling zero-abstraction 1:1 FFI wrappers for the Swiss Ephemeris C library —
+                                106 functions, 348 constants, verified parity, prebuilt cross-platform binaries.
+                                PHP via <code class="text-indigo-300">ext-ffi</code>, Python via
+                                <code class="text-yellow-300">ctypes</code>.</p>
                             <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                                <span class="text-[9px] font-technical text-white/30 self-center uppercase tracking-widest w-full">PHP</span>
                                 <a href="https://jayeshmepani.github.io/Swiss-Ephemeris-PHP/" target="_blank"
                                     class="px-3 py-1 bg-indigo-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
                                     aria-label="View Swiss Ephemeris PHP documentation">
@@ -1352,6 +1354,15 @@
                                     class="px-3 py-1 bg-white/10 text-indigo-400 text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
                                     aria-label="View Swiss Ephemeris PHP on Packagist">
                                     <i class="ri-box-3-line" aria-hidden="true"></i> Packagist</a>
+                                <span class="text-[9px] font-technical text-white/30 self-center uppercase tracking-widest w-full">Python</span>
+                                <a href="https://pypi.org/project/swisseph-ffi/" target="_blank"
+                                    class="px-3 py-1 bg-yellow-400 text-nebula-bg text-[10px] font-bold rounded-full hover:bg-white transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View swisseph-ffi on PyPI">
+                                    <i class="ri-external-link-line" aria-hidden="true"></i> PyPI</a>
+                                <a href="https://github.com/jayeshmepani/Swiss-Ephemeris-Python" target="_blank"
+                                    class="px-3 py-1 bg-white/10 text-white text-[10px] font-bold rounded-full hover:bg-white hover:text-nebula-bg transition-colors flex items-center gap-1 font-technical uppercase"
+                                    aria-label="View swisseph-ffi source code on GitHub">
+                                    <i class="devicon-github-original" aria-hidden="true"></i> GitHub</a>
                             </div>
                         </div>
                     </article>
