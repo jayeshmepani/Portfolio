@@ -1,0 +1,251 @@
+\documentclass[11pt,a4paper]{article}
+
+% ── ATS essentials ───────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\input{glyphtounicode}          % map ligatures (fi, fl, ff…) to Unicode
+\pdfgentounicode=1              % ensure text-extraction produces real characters
+
+\usepackage{mathptmx}           % Times-like; fully embeds as Unicode glyphs
+\usepackage[hidelinks]{hyperref}% clickable links, no coloured boxes in ATS copy
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{changepage}
+\usepackage{xcolor}
+\usepackage{microtype}
+
+% ── Link styling (visible to human reader, plain text for ATS) ──────────────
+\definecolor{linkblue}{RGB}{0, 70, 180}
+\newcommand{\cvlink}[2]{\textcolor{linkblue}{\underline{\href{#1}{#2}}}}
+
+% ── Overflow guard ───────────────────────────────────────────────────────────
+\sloppy
+\setlength{\emergencystretch}{3em}
+\renewcommand{\texttt}[1]{{\ttfamily\hyphenchar\font=`\-\relax #1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Section header ───────────────────────────────────────────────────────────
+\newcommand{\cvsection}[1]{%
+    \vspace{10pt}
+    \noindent\textbf{\large\MakeUppercase{#1}}
+    \vspace{3pt}
+    \hrule
+    \vspace{5pt}
+}
+
+% ── Project header (ATS-safe: NO tabularx / tabular) ────────────────────────
+% Layout: bold name  ....  links right-aligned via \hfill
+%         tech (small italic) on next line
+\newcommand{\projectheader}[3]{%
+    \noindent\textbf{#1} \hfill #3 \\
+    {\small\itshape #2}\par
+    \vspace{2pt}
+}
+
+% ── Experience entry header ──────────────────────────────────────────────────
+\newcommand{\expheader}[4]{%   #1=company  #2=dates  #3=title  #4=location
+    \noindent\textbf{#1} \hfill \textbf{#2} \\
+    \textit{#3} \hfill #4
+}
+
+\begin{document}
+
+% ── Contact header ────────────────────────────────────────────────────────────
+\begin{center}
+{\Huge\textbf{Jayesh Patel}}\\[5pt]
++91\,8347205513 \; $|$ \;
+\cvlink{mailto:jayeshmepani777@gmail.com}{jayeshmepani777@gmail.com} \; $|$ \;
+\cvlink{https://linkedin.com/in/jayeshmepani/}{linkedin.com/in/jayeshmepani} \; $|$ \;
+\cvlink{https://github.com/jayeshmepani/}{github.com/jayeshmepani}
+\end{center}
+
+% ── Professional Summary ──────────────────────────────────────────────────────
+\cvsection{Professional Summary}
+\begin{adjustwidth}{0.25in}{0.25in}
+Full-stack developer and Computer Science graduate with hands-on experience in web development, mobile development and data science.
+Proven track record building high-precision computation engines and open-source libraries published on Packagist and PyPI. Adept at delivering clean, maintainable code and integrating AI APIs into production systems.
+\end{adjustwidth}
+
+% ── Technical Skills ──────────────────────────────────────────────────────────
+\cvsection{Technical Skills}
+\begin{adjustwidth}{0.25in}{0.25in}
+\textbf{Languages:} Python, PHP, JavaScript, Java, Go, C, C++, Dart \\
+\textbf{Frontend:} React, Next.js, Vue.js, AngularJS, Tailwind CSS, Bootstrap, SCSS, WebGL, HTML, CSS \\
+\textbf{Backend:} Laravel, Node.js, Express.js, FastAPI, Flask, Django, JWT \\
+\textbf{Databases:} MySQL, PostgreSQL, SQLite, MongoDB \\
+\textbf{Mobile:} Flutter, Android (WebView/Java) \\
+\textbf{DevOps \& Tools:} Git, GitHub, GitLab, Nginx, Postman, Vite, VS Code, Linux, PowerShell \\
+\textbf{AI/ML \& Data Science:} PyTorch, TensorFlow, Keras, OpenCV, scikit-learn, Pandas, HuggingFace, NLP \\
+\textbf{AI Media \& Generative:} Stable Diffusion, GFPGAN, RealESRGAN, CodeFormer, UVR \\
+\textbf{Design \& Creative:} Figma, Adobe Creative Cloud, Canva \\
+\textbf{Other:} FFI, ctypes, REST API design, SQLAlchemy, Alembic, AI API integration
+\end{adjustwidth}
+
+% ── Work Experience ───────────────────────────────────────────────────────────
+\cvsection{Work Experience}
+\begin{adjustwidth}{0.25in}{0.25in}
+
+\expheader{Shreesoftech}{Dec 2024 -- Present}{Laravel Developer}{Hybrid}
+
+\vspace{8pt}
+
+\expheader{WRTeam}{May 2024 -- June 2024}{PHP Developer Intern}{Remote}
+\vspace{2pt}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Engineered and maintained a PHP web application, improving codebase efficiency by 50\%+ through dynamic fetching optimizations that significantly reduced file count and code volume.
+\item Collaborated on integrating front-end and back-end systems, accelerating delivery timelines.
+\end{itemize}
+
+\vspace{8pt}
+
+\expheader{CodSoft}{Jun 2024 -- Jul 2024}{Flutter Developer Intern}{Remote}
+\vspace{2pt}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Built 4 cross-platform Flutter applications covering diverse domains, enhancing user engagement through polished UI and smooth navigation.
+\item Conducted code reviews and optimized app performance across Android and iOS targets.
+\end{itemize}
+
+\vspace{8pt}
+
+\expheader{CodSoft}{May 2024 -- Jun 2024}{Python Programming Intern}{Remote}
+\vspace{2pt}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Developed 5 Python applications spanning user management, game logic, security, arithmetic, and task management, implementing 3 new features that improved robustness by 30\%.
+\end{itemize}
+
+\vspace{8pt}
+
+\expheader{CodSoft}{May 2024 -- Jun 2024}{Data Science Intern}{Remote}
+\vspace{2pt}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Analyzed 5 datasets and produced 55 visualizations using Pandas, Matplotlib, and Seaborn to surface actionable insights.
+\item Trained and evaluated predictive ML models achieving 85\%+ accuracy.
+\end{itemize}
+
+\end{adjustwidth}
+
+% ── Projects ──────────────────────────────────────────────────────────────────
+\cvsection{Projects}
+\begin{adjustwidth}{0.25in}{0.25in}
+
+\projectheader{Panchang Core}{PHP, FFI, Swiss Ephemeris}{%
+  \cvlink{https://github.com/jayeshmepani/panchang-core}{GitHub}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Architected a high-precision Hindu calendar engine using a Swiss Ephemeris C-FFI bridge and IEEE\,754 doubles to compute Tithi, Nak\d{s}atra, Yoga, Kara\d{n}a, and 30 Muh\={u}rtas with 0.001 arcsecond accuracy.
+\item Implemented KalaNirnaya logic orchestrating 237 regional festivals (Smarta/Vaishnava) across Amanta/Purnimanta calendars with English, Hindi, and Gujarati output.
+\item Designed a framework-agnostic architecture deployable as a standalone CLI or as a Laravel package via native Facades and Service Providers.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Swiss Ephemeris FFI}{PHP, Python, FFI, ctypes, C}{%
+  \cvlink{https://github.com/jayeshmepani/swiss-ephemeris-ffi}{GitHub (PHP)} \;|\;
+  \cvlink{https://github.com/jayeshmepani/swiss-ephemeris-python}{GitHub (Python)}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Published zero-abstraction 1:1 FFI libraries for the Swiss Ephemeris C API (106 functions, 348 constants) as two sibling packages: PHP via ext-ffi and Python via ctypes, both on Packagist and PyPI.
+\item Bundled prebuilt .so/.dylib/.dll binaries for Linux, macOS, and Windows (x64/arm64) directly in each package wheel, eliminating manual C compilation for end users.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Hindu Scriptures}{Node.js, Express.js, JavaScript, Google Gemini AI, Java}{%
+  \cvlink{https://github.com/jayeshmepani/HinduScriptures/}{GitHub} \;|\;
+  \cvlink{https://hinduscriptures.onrender.com/}{Live demo}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Built a full-text scripture search platform with AI-powered search via Google Gemini 2.5 Flash API and URL-rewriting-based multilingual translation through Google Translate.
+\item Delivered both a web app and an Android WebView app, serving original Devanagari content with on-demand translation to multiple languages.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Enhanced Precision Grayscale Converter}{Python, FastAPI, Tailwind CSS, JavaScript, Axios}{%
+  \cvlink{https://github.com/jayeshmepani/PrecisionGrayscaleConverter-Web}{GitHub (Web)} \;|\;
+  \cvlink{https://precisiongrayscaleconverter-web.onrender.com/}{Live demo}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Engineered a FastAPI backend supporting 7 color-science modes (Rec.709, BT.601, BT.2100, HSL, HSV, L*a*b*, Gamma) with 8/16-bit output in PNG, JPEG, HEIC, TIFF, WEBP, and BMP.
+\item Developed a responsive frontend with Axios-powered live previews, drag-and-drop, and EXIF/ICC preservation toggles; fully self-hosted with no third-party uploads.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Laravel Gemini AI Translation Extractor}{PHP, Laravel, Google Gemini AI, spatie/fork}{%
+  \cvlink{https://github.com/jayeshmepani/laravel-gemini-translator}{GitHub}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Developed an Artisan command that scans Blade/PHP/JS/TS sources for translation keys, generates Laravel PHP \& JSON language files via Gemini 2.0 Flash-Lite, and runs concurrent fork-based requests with auto-retry on rate limits.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{PostalKit}{Python, ctypes, FFI, libpostal}{%
+  \cvlink{https://github.com/jayeshmepani/postalkit}{GitHub}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Delivered a strict 1:1 ctypes wrapper for the OpenVenues libpostal C library (46 functions, 10 structs, 42 flags) with first-run auto-download of $\sim$2\,GB ML models and OS-specific binaries, bypassing all manual toolchain setup.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Literary \& Linguistic Poetry Analyzer}{Python, FastAPI, PyTorch, HuggingFace}{%
+  \cvlink{https://github.com/jayeshmepani/poetry-analyzer}{GitHub}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Designed an async FastAPI backend orchestrating 1.5\,GB+ HuggingFace Transformer models, spaCy, NLTK, and Stanza for multilingual sentiment, emotion, and phonological classification.
+\item Implemented SQLAlchemy ORM connection pooling for SQLite, PostgreSQL, and MySQL/MariaDB, with Alembic schema migrations for production-ready scalability.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Crop \& Nutrient Recommendations Apps}{Python, Flask, Google Gemini AI, HTML, CSS, JavaScript}{%
+  \cvlink{https://github.com/jayeshmepani/Crop-Recommendations-App}{GitHub (Crop)} \;|\;
+  \cvlink{https://github.com/jayeshmepani/Nutrient-Recommendations-App}{GitHub (Nutrient)}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Built two Flask applications powered by Google Gemini 2.0 Flash Lite: one recommending crops by factoring in weather, soil, and water needs; the other generating personalized daily caloric and nutrient targets from user biometric inputs.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Recipe App}{Flutter}{%
+  \cvlink{https://github.com/jayeshmepani/Recipe-App}{GitHub}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Built a cross-platform Flutter recipe browser with search, filtering, and a user-friendly detail view.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{Portfolio}{HTML, CSS, JavaScript, Tailwind CSS}{%
+  \cvlink{https://github.com/jayeshmepani/Portfolio}{GitHub} \;|\;
+  \cvlink{https://jayeshmepani.github.io/Portfolio/}{Live demo}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Designed and deployed a personal portfolio showcasing projects, skills, and professional background.
+\end{itemize}
+
+\end{adjustwidth}
+
+% ── Education ─────────────────────────────────────────────────────────────────
+\cvsection{Education}
+\begin{adjustwidth}{0.25in}{0.25in}
+\noindent\textbf{Parul University} \hfill Vadodara, Gujarat, India \\
+\textit{B.Tech in Computer Science and Engineering} \hfill 2021 -- 2025 \\
+CGPA: 7.29
+\end{adjustwidth}
+
+% ── Certifications ────────────────────────────────────────────────────────────
+\cvsection{Certifications}
+\begin{adjustwidth}{0.25in}{0.25in}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item \cvlink{https://drive.google.com/file/d/1L1zCEEWwPwZR9s1vSDAtiGP-Eao2AlCV/view}{PHP Developer}
+\item \cvlink{https://drive.google.com/file/d/1L0sXZx5_cM2NbqPqMxu9LT66k9NIc714/view}{Python Programming}
+\item \cvlink{https://drive.google.com/file/d/1Kf9wefWCrOgYh_YBgHKEjPQgd8nGajpE/view}{Data Science}
+\item \cvlink{https://drive.google.com/file/d/1JvQcnijk_f-0-ApsC_HS0jfB2LpWnHAC/view}{Flutter Developer}
+\item \cvlink{https://drive.google.com/file/d/1KsSZirAqiWB7n5yVZ7ywfdsdEItlR7dt/view}{Data Analytics with Python}
+\item \cvlink{https://drive.google.com/file/d/1h3f5_pZ8GIM2jUCLM_1oN1BcB0Qxi2Sg/view}{Laravel}
+\end{itemize}
+\end{adjustwidth}
+
+% ── Soft Skills ───────────────────────────────────────────────────────────────
+\cvsection{Soft Skills}
+\begin{adjustwidth}{0.25in}{0.25in}
+Analytical Thinking, Problem Solving, Attention to Detail, Research, Time Management,
+Adaptability, Communication, Teamwork, Leadership
+\end{adjustwidth}
+
+\end{document}
