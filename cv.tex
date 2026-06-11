@@ -129,22 +129,35 @@ Proven track record building high-precision computation engines and open-source 
 \cvsection{Projects}
 \begin{adjustwidth}{0.25in}{0.25in}
 
-\projectheader{Panchang Core}{PHP, FFI, Swiss Ephemeris}{%
+\projectheader{Panchang Core}{PHP, FFI, JME Ephemeris}{%
   \cvlink{https://github.com/jayeshmepani/panchang-core}{GitHub}}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
-\item Architected a high-precision Hindu calendar engine using a Swiss Ephemeris C-FFI bridge and IEEE\,754 doubles to compute Tithi, Nak\d{s}atra, Yoga, Kara\d{n}a, and 30 Muh\={u}rtas with 0.001 arcsecond accuracy.
-\item Implemented KalaNirnaya logic orchestrating 237 regional festivals (Smarta/Vaishnava) across Amanta/Purnimanta calendars with English, Hindi, and Gujarati output.
+\item Architected a high-precision Hindu calendar engine using a JME Ephemeris FFI bridge and IEEE\,754 doubles to compute Tithi, Nak\d{s}atra, Yoga, Kara\d{n}a, and 30 Muh\={u}rtas with 0.001 arcsecond accuracy.
+\item Implemented KalaNirnaya logic orchestrating 323 unique festivals and 85 unique vrat identities across Amanta/Purnimanta calendars with English, Hindi, and Gujarati output.
 \item Designed a framework-agnostic architecture deployable as a standalone CLI or as a Laravel package via native Facades and Service Providers.
 \end{itemize}
 
 \vspace{6pt}
 
-\projectheader{Swiss Ephemeris FFI}{PHP, Python, FFI, ctypes, C}{%
-  \cvlink{https://github.com/jayeshmepani/swiss-ephemeris-ffi}{GitHub (PHP)} \;|\;
-  \cvlink{https://github.com/jayeshmepani/swiss-ephemeris-python}{GitHub (Python)}}
+\projectheader{JME Ephemeris Engine}{C, Astronomy, JPL, CALCEPH}{%
+  \cvlink{https://github.com/jayeshmepani/jpl-ephemeris}{GitHub}}
 \begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
-\item Published zero-abstraction 1:1 FFI libraries for the Swiss Ephemeris C API (106 functions, 348 constants) as two sibling packages: PHP via ext-ffi and Python via ctypes, both on Packagist and PyPI.
-\item Bundled prebuilt .so/.dylib/.dll binaries for Linux, macOS, and Windows (x64/arm64) directly in each package wheel, eliminating manual C compilation for end users.
+\item Developed an independent MIT-licensed ephemeris engine with 204 public functions and 462 constants.
+\item Implemented multiple computation backends including JPL/CALCEPH, Moshier, VSOP87, ELP2000, and Meeus.
+\item Designed strict engine-selection architecture supporting JPL, MOSHIER, VSOP\_ELP\_MEEUS, and AUTO modes.
+\item Built the native foundation powering PHP, Python, and Dart language ecosystems.
+\end{itemize}
+
+\vspace{6pt}
+
+\projectheader{JME Cross-Language SDK Ecosystem}{PHP, Python, Dart, FFI, C}{%
+  \cvlink{https://github.com/jayeshmepani/jpl-moshier-ephemeris-php}{GitHub (PHP)} \;|\;
+  \cvlink{https://github.com/jayeshmepani/jpl-moshier-ephemeris-python}{GitHub (Python)} \;|\;
+  \cvlink{https://github.com/jayeshmepani/jpl-moshier-ephemeris-dart}{GitHub (Dart)}}
+\begin{itemize}[leftmargin=0.2in, itemsep=1pt, parsep=0pt, topsep=0pt]
+\item Published FFI-based native bindings and packaged runtimes across PHP, Python, and Flutter/Dart.
+\item Delivered consistent access to the same C API across multiple programming languages and operating systems.
+\item Eliminated manual compilation by distributing platform-specific binaries for end users.
 \end{itemize}
 
 \vspace{6pt}
