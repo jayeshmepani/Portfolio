@@ -7,13 +7,16 @@
   "printWidth": 100,
   "bracketSpacing": true,
   "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "ignore",
   "overrides": [
     {
       "files": "*.html",
       "options": {
         "printWidth": 1000,
-        "singleAttributePerLine": false
+        "singleAttributePerLine": false,
+        "htmlWhitespaceSensitivity": "ignore"
       }
     }
   ]
 }
+
