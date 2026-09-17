@@ -199,9 +199,7 @@
         color: var(--accent-telemetry);
         border: 2px solid var(--accent-telemetry);
         border-radius: var(--radius-sm);
-        font-family: var(--font-mono);
-        font-size: 0.875rem;
-        font-weight: 700;
+        font: 700 0.875rem var(--font-mono);
         text-decoration: none;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
         transition: top 0.2s ease-in-out;
@@ -403,8 +401,7 @@
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        font-family: var(--font-mono);
-        font-size: 0.875rem;
+        font: 0.875rem var(--font-mono);
         color: var(--text-primary);
         min-width: 0;
     }
@@ -553,8 +550,7 @@
 
         @media (width < 768px) {
             padding: 0.95rem 1.25rem;
-            font-size: 1.15rem;
-            font-family: var(--font-mono);
+            font: 1.15rem var(--font-mono);
             border-bottom: 1px solid oklch(100% 0 0 / 0.05);
             display: flex;
             align-items: center;
@@ -593,8 +589,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 5rem;
-        padding-bottom: 4.75rem;
+        padding-block: 5rem 4.75rem;
         position: relative;
         overflow: hidden;
 
@@ -605,8 +600,7 @@
 
         @media (width < 840px), (height <= 740px) {
             justify-content: flex-start;
-            padding-top: 4.5rem;
-            padding-bottom: 2.5rem;
+            padding-block: 4.5rem 2.5rem;
         }
 
         @media (height <= 740px) {
@@ -679,8 +673,7 @@
     .hero-billboard__sig-kicker {
         position: relative;
         z-index: 1;
-        font-family: var(--font-mono);
-        font-size: 0.58rem;
+        font: 0.58rem var(--font-mono);
         letter-spacing: 0.28em;
         text-transform: uppercase;
         color: oklch(72% 0.12 185 / 0.75);
@@ -699,11 +692,8 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 0.45rem;
-        font-family: var(--font-mono);
-        font-size: clamp(0.62rem, 2.7vw, 0.8rem);
-        font-weight: 600;
+        font: 600 clamp(0.62rem, 2.7vw, 0.8rem)/1.4 var(--font-mono);
         letter-spacing: 0.08em;
-        line-height: 1.4;
         text-align: center;
         text-wrap: balance;
         text-transform: uppercase;
@@ -728,8 +718,7 @@
         z-index: 5;
         padding: 0.65rem 1rem;
         color: var(--text-secondary);
-        font-family: var(--font-mono);
-        font-size: 0.68rem;
+        font: 0.68rem var(--font-mono);
         letter-spacing: 0.32em;
         text-transform: uppercase;
         transition: color var(--transition-fast);
@@ -790,10 +779,7 @@
         gap: 0.35rem;
         min-width: 0;
         max-width: 100%;
-        font-family: var(--font-mono);
-        font-size: clamp(0.8rem, 3.5vw, 1.05rem);
-        font-weight: 500;
-        line-height: 1.4;
+        font: 500 clamp(0.8rem, 3.5vw, 1.05rem)/1.4 var(--font-mono);
     }
 
     .hero-billboard__prompt {
@@ -843,11 +829,7 @@
     }
 
     .hero-billboard__lead {
-        font-family: var(--font-body);
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.05rem;
-        line-height: 1.7;
+        font: 400 1.05rem/1.7 var(--font-body);
         color: var(--text-secondary);
         max-width: 62ch;
         margin-bottom: 0;
@@ -891,8 +873,7 @@
     }
 
     .section-header__tag {
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
+        font: 0.75rem var(--font-mono);
         letter-spacing: 0.1em;
         color: var(--accent-telemetry);
         text-transform: uppercase;
@@ -900,10 +881,7 @@
     }
 
     .section-header__title {
-        font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 500;
-        font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+        font: italic 500 clamp(2.25rem, 4.5vw, 3.5rem) var(--font-display);
         letter-spacing: -0.02em;
     }
 
@@ -915,9 +893,7 @@
     }
 
     .flagship-card__tag {
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
-        font-weight: 600;
+        font: 600 0.75rem var(--font-mono);
         letter-spacing: 0.05em;
         text-transform: uppercase;
     }
@@ -928,9 +904,7 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 0.6rem;
-        font-family: var(--font-body);
-        font-weight: 600;
-        font-size: 0.9375rem;
+        font: 600 0.9375rem var(--font-body);
         padding: 0.75rem 1.5rem;
         border-radius: var(--radius-full);
         transition: all var(--transition-fast);
@@ -1123,8 +1097,7 @@
     }
 
     .skill-pill {
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
+        font: 0.75rem var(--font-mono);
         padding: 0.3rem 0.65rem;
         background: oklch(100% 0 0 / 0.03);
         border: 1px solid var(--border-subtle);
@@ -1171,8 +1144,7 @@
         padding: 0.65rem 1.5rem;
         background: oklch(12.88% 0.0201 262.9 / 0.45);
         border-bottom: 1px solid oklch(100% 0 none / 0.07);
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
+        font: 0.72rem var(--font-mono);
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--text-muted);
@@ -1267,8 +1239,7 @@
     }
 
     .project-card-marvel__subhead {
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
+        font: 0.75rem var(--font-mono);
         color: var(--accent-telemetry);
         text-transform: uppercase;
         letter-spacing: 0.05em;
@@ -1541,8 +1512,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 3.5rem;
-        padding-bottom: 2rem;
+        padding-block: 3.5rem 2rem;
         overflow: visible;
     }
 
@@ -1562,8 +1532,7 @@
     }
 
     .signature-text {
-        font-family: var(--font-signature);
-        font-size: clamp(2.4rem, 5.5vw, 3.5rem);
+        font: clamp(2.4rem, 5.5vw, 3.5rem) var(--font-signature);
         color: var(--accent-lavender);
         transform: rotate(-6deg);
         display: inline-block;
@@ -1910,9 +1879,7 @@
             border-radius: var(--radius-sm);
             background: oklch(72% 0.12 185 / 0.08);
             color: var(--accent-telemetry);
-            font-family: var(--font-mono);
-            font-size: 0.76rem;
-            font-weight: 600;
+            font: 600 0.76rem var(--font-mono);
             letter-spacing: 0.08em;
             text-transform: uppercase;
             cursor: pointer;
@@ -1968,16 +1935,16 @@
 
     .timeline-track {
         position: relative;
-        margin-left: 1.5rem;
-        padding-left: 2.7rem;
-        border-left: 2px solid oklch(100% 0 0 / 0.12);
+        margin-inline-start: 1.5rem;
+        padding-inline-start: 2.7rem;
+        border-inline-start: 2px solid oklch(100% 0 0 / 0.12);
         display: flex;
         flex-direction: column;
         gap: 2.5rem;
 
         @media (width <=640px) {
-            margin-left: 0.5rem;
-            padding-left: 1.7rem;
+            margin-inline-start: 0.5rem;
+            padding-inline-start: 1.7rem;
         }
     }
 
@@ -2147,8 +2114,7 @@
     }
 
     .archive-card__tech {
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
+        font: 0.78rem var(--font-mono);
         color: var(--text-muted);
     }
 
@@ -2201,8 +2167,7 @@
     }
 
     .career-card__company {
-        font-family: var(--font-mono);
-        font-size: 0.85rem;
+        font: 0.85rem var(--font-mono);
     }
 
     .career-card__desc {
@@ -2213,8 +2178,7 @@
     }
 
     .career-card__date-pill {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
+        font: 0.8rem var(--font-mono);
         color: var(--text-muted);
         background: oklch(100% 0 0 / 0.04);
         padding: 0.35rem 0.75rem;
@@ -2265,8 +2229,7 @@
     }
 
     .command-footer__copyright {
-        font-family: var(--font-mono);
-        font-size: 0.825rem;
+        font: 0.825rem var(--font-mono);
         color: var(--text-secondary);
         display: flex;
         justify-content: center;
@@ -2282,8 +2245,7 @@
         align-items: center;
         gap: 0.4rem;
         color: var(--text-muted);
-        font-size: 0.8rem;
-        font-family: var(--font-mono);
+        font: 0.8rem var(--font-mono);
         text-decoration: none;
         transition: color var(--transition-fast);
 
