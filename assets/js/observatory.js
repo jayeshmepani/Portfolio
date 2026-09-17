@@ -307,7 +307,6 @@
     initCodeSwitchers();
     initScrollReveals();
     initCardStack();
-    initCardExpand();
     initMobileNav();
     const yearEl = document.getElementById('current-year');
     if (yearEl) {
