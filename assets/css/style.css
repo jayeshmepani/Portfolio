@@ -248,6 +248,23 @@
 }
 
 @layer components {
+  /* Dynamic Quantum Scroll Progress Bar */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-telemetry), var(--accent-astrolabe), var(--accent-lavender), #2dd4bf);
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    will-change: transform;
+    z-index: 999;
+    box-shadow: 0 0 12px rgba(45, 212, 191, 0.8), 0 0 24px rgba(192, 132, 252, 0.4);
+    transition: transform 0.08s linear;
+    pointer-events: none;
+  }
+
   .observatory-nav {
     position: fixed;
     top: 0;
@@ -1662,13 +1679,13 @@ html.lenis {
 
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1);
+  transform: translateY(32px) scale(0.985);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 
   &.is-visible {
     opacity: 1;
-    transform: translateY(0)
+    transform: translateY(0) scale(1);
   }
 }
 

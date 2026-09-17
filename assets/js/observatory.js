@@ -360,7 +360,10 @@ function initTypewriter() {
   type();
 }
 
-// 7. LIGHTWEIGHT CANVAS STARFIELD (Subtle Ambient Motion, Zero Library Overhead)
+// Global motion telemetry state
+window.__scrollVelocity = 0;
+
+// 7. LIGHTWEIGHT CANVAS STARFIELD (Coupled to Scroll Velocity & Inertial Acceleration)
 function initCanvasStarfield() {
   const canvas = document.getElementById("stars-canvas");
   if (!canvas) return;
@@ -375,25 +378,30 @@ function initCanvasStarfield() {
   resize();
   window.addEventListener("resize", resize);
 
-  const numStars = Math.min(100, Math.floor(window.innerWidth / 15));
+  const numStars = Math.min(110, Math.floor(window.innerWidth / 14));
   const stars = [];
   for (let i = 0; i < numStars; i++) {
     stars.push({
       x: Math.random() * width,
       y: Math.random() * height,
-      r: Math.random() * 1.2 + 0.3,
-      alpha: Math.random() * 0.7 + 0.2,
+      r: Math.random() * 1.3 + 0.3,
+      alpha: Math.random() * 0.7 + 0.25,
       dx: (Math.random() - 0.5) * 0.15,
-      dy: (Math.random() - 0.5) * 0.15
+      dy: (Math.random() - 0.5) * 0.15,
+      speedFactor: Math.random() * 0.45 + 0.15
     });
   }
 
   function render() {
     ctx.clearRect(0, 0, width, height);
+    const vel = window.__scrollVelocity || 0;
+    const accelY = vel * 0.08;
+
     for (let i = 0; i < stars.length; i++) {
       const s = stars[i];
       s.x += s.dx;
-      s.y += s.dy;
+      s.y += s.dy + (accelY * s.speedFactor);
+
       if (s.x < 0) s.x = width;
       if (s.x > width) s.x = 0;
       if (s.y < 0) s.y = height;
@@ -418,20 +426,33 @@ document.addEventListener("DOMContentLoaded", () => {
   initMouseSpotlight();
 });
 
-// 8. LENIS SMOOTH INERTIAL ACCELERATION SCROLL ENGINE
+// 8. QUANTUM INERTIAL ACCELERATION SCROLL ENGINE (Quartic Easing & Micro-Velocity Physics)
 function initLenis() {
   if (typeof window.Lenis === 'undefined') return;
 
+  const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+  const progressBar = document.getElementById('scroll-progress');
+
+  // Quartic acceleration curve (e => 1 - Math.pow(1 - e, 4)) matching the original high-momentum feel
   const lenis = new window.Lenis({
-    duration: 1.25,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: isMobile ? 0.95 : 1.35,
+    easing: (t) => 1 - Math.pow(1 - t, 4),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
     smoothTouch: false,
-    wheelMultiplier: 1.1,
+    wheelMultiplier: 1.08,
+    touchMultiplier: 1.0,
   });
   window.__observatoryLenis = lenis;
+
+  // Track scroll velocity and progress bar in real time
+  lenis.on('scroll', (e) => {
+    window.__scrollVelocity = e.velocity || 0;
+    if (progressBar && typeof e.progress === 'number') {
+      progressBar.style.transform = `scaleX(${e.progress})`;
+    }
+  });
 
   function raf(time) {
     lenis.raf(time);
@@ -439,7 +460,7 @@ function initLenis() {
   }
   requestAnimationFrame(raf);
 
-  // Smooth internal anchor scroll integration
+  // Smooth internal anchor scroll integration with cubic-bezier inertial glide
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
@@ -452,7 +473,12 @@ function initLenis() {
             return;
           }
           const offset = nav ? -(nav.getBoundingClientRect().height + 12) : -80;
-          lenis.scrollTo(targetEl, { offset, duration: 1.3, force: true });
+          lenis.scrollTo(targetEl, {
+            offset,
+            duration: 1.6,
+            easing: (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+            force: true
+          });
         }
       }
     });
