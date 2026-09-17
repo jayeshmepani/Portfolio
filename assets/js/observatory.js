@@ -193,7 +193,7 @@
       btn.type = 'button';
       btn.className = 'stack-card__toggle';
       btn.setAttribute('aria-expanded', 'false');
-      btn.textContent = 'Read more';
+      btn.textContent = 'READ MORE';
       inner.appendChild(btn);
 
       btn.addEventListener('click', () => {
@@ -204,12 +204,16 @@
           const otherBtn = other.querySelector('.stack-card__toggle');
           if (otherBtn) {
             otherBtn.setAttribute('aria-expanded', 'false');
-            otherBtn.textContent = 'Read more';
+            otherBtn.textContent = 'READ MORE';
           }
         });
         card.classList.toggle('is-expanded', open);
         btn.setAttribute('aria-expanded', String(open));
-        btn.textContent = open ? 'Show less' : 'Read more';
+        btn.textContent = open ? 'SHOW LESS' : 'READ MORE';
+
+        if (window.__observatoryLenis && typeof window.__observatoryLenis.resize === 'function') {
+          window.__observatoryLenis.resize();
+        }
       });
     });
   }
@@ -307,6 +311,7 @@
     initCodeSwitchers();
     initScrollReveals();
     initCardStack();
+    initCardExpand();
     initMobileNav();
     const yearEl = document.getElementById('current-year');
     if (yearEl) {
