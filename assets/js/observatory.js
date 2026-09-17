@@ -467,18 +467,57 @@ function initLenis() {
 }
 
 function initMouseSpotlight() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const cards = document.querySelectorAll(
         ".arsenal-card, .archive-card, .career-card, .stack-card, .card-inner"
     );
     if (!cards.length) return;
 
     cards.forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+        let rect = null;
+        let rafId = null;
+        let mouseX = 0;
+        let mouseY = 0;
+
+        const updatePosition = () => {
+            if (!rect) return;
+            const x = mouseX - rect.left;
+            const y = mouseY - rect.top;
             card.style.setProperty("--mouse-x", `${x}px`);
             card.style.setProperty("--mouse-y", `${y}px`);
-        });
+            rafId = null;
+        };
+
+        const updateRect = () => {
+            rect = card.getBoundingClientRect();
+        };
+
+        card.addEventListener("mouseenter", updateRect, { passive: true });
+
+        card.addEventListener(
+            "mousemove",
+            (e) => {
+                if (!rect) updateRect();
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updatePosition);
+                }
+            },
+            { passive: true }
+        );
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
+                rect = null;
+            },
+            { passive: true }
+        );
     });
 }
