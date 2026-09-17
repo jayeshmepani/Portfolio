@@ -462,9 +462,29 @@ function initLenis() {
   });
   window.__observatoryLenis = lenis;
 
-  // Track scroll velocity in real time (scroll progress & back-to-top are handled purely by CSS scroll-timeline)
+  // Track scroll velocity in real time (CSS scroll-timeline with Lenis fallback)
+  const progressBar = document.getElementById("scroll-progress");
+  const backToTopBtn = document.querySelector(".back-to-top");
+  const supportsCSSScrollTimeline =
+    typeof CSS !== "undefined" &&
+    typeof CSS.supports === "function" &&
+    CSS.supports("animation-timeline: scroll()");
+
   lenis.on("scroll", (e) => {
     window.__scrollVelocity = e.velocity || 0;
+    if (!supportsCSSScrollTimeline) {
+      if (progressBar && typeof e.progress === "number") {
+        progressBar.style.transform = `scaleX(${e.progress})`;
+      }
+      if (backToTopBtn && typeof e.scroll === "number") {
+        const isPast = e.scroll > 200;
+        backToTopBtn.style.opacity = isPast ? "1" : "0";
+        backToTopBtn.style.pointerEvents = isPast ? "auto" : "none";
+        backToTopBtn.style.transform = isPast
+          ? "translateY(0) scale(1)"
+          : "translateY(12px) scale(0.85)";
+      }
+    }
   });
 
   function raf(time) {
