@@ -38,8 +38,8 @@
   <!-- Ambient Canvas Background -->
   <canvas id="stars-canvas"></canvas>
 
-  <!-- Quantum Scroll Progress Indicator -->
-  <div id="scroll-progress" aria-hidden="true"></div>
+  <!-- Quantum Scroll Progress Indicator (Pure CSS Scroll-Timeline) -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="observatory-nav" role="banner">
@@ -1129,6 +1129,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- Back to Top Pure CSS Scroll-Timeline Button -->
+  <a href="#home" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
 
   <!-- Interactive Scripts -->
   <script src="assets/vendor/lenis.min.js"></script>

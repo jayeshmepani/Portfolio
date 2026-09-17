@@ -436,7 +436,6 @@ function initLenis() {
   if (typeof window.Lenis === 'undefined') return;
 
   const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
-  const progressBar = document.getElementById('scroll-progress');
 
   // Quartic acceleration curve (e => 1 - Math.pow(1 - e, 4)) matching the original high-momentum feel
   const lenis = new window.Lenis({
@@ -451,12 +450,9 @@ function initLenis() {
   });
   window.__observatoryLenis = lenis;
 
-  // Track scroll velocity and progress bar in real time
+  // Track scroll velocity in real time (scroll progress & back-to-top are handled purely by CSS scroll-timeline)
   lenis.on('scroll', (e) => {
     window.__scrollVelocity = e.velocity || 0;
-    if (progressBar && typeof e.progress === 'number') {
-      progressBar.style.transform = `scaleX(${e.progress})`;
-    }
   });
 
   function raf(time) {
