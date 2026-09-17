@@ -4,7 +4,7 @@
  */
 
 (function () {
-  'use strict';
+  "use strict";
 
   // 1. ASTROLABE LOCAL SIDEREAL TIME & TITHI CALCULATION
   // Coordinates for Kutch, Gujarat: 23.2420° N, 69.6669° E (Longitude: 69.6669 deg)
@@ -13,28 +13,28 @@
   function calculateLST() {
     const now = new Date();
     // Julian Date calculation
-    const jd = (now.getTime() / 86400000) + 2440587.5;
+    const jd = now.getTime() / 86400000 + 2440587.5;
     const d = jd - 2451545.0; // Days since J2000.0
-    
+
     // Greenwich Mean Sidereal Time (GMST) in degrees
     let gmst = 280.46061837 + 360.98564736629 * d;
     gmst = ((gmst % 360) + 360) % 360;
 
     // Local Sidereal Time (LST) = GMST + Longitude
-    let lstDeg = ((gmst + LONGITUDE_DEG) % 360 + 360) % 360;
-    
+    const lstDeg = (((gmst + LONGITUDE_DEG) % 360) + 360) % 360;
+
     // Convert degrees to hours, minutes, seconds
     const lstHoursTotal = lstDeg / 15.0;
     const h = Math.floor(lstHoursTotal);
     const m = Math.floor((lstHoursTotal - h) * 60);
     const s = Math.floor(((lstHoursTotal - h) * 60 - m) * 60);
 
-    const pad = (n) => String(n).padStart(2, '0');
+    const pad = (n) => String(n).padStart(2, "0");
     return `${pad(h)}h ${pad(m)}m ${pad(s)}s`;
   }
 
   function updateTelemetryClock() {
-    const lstEl = document.getElementById('telemetry-lst');
+    const lstEl = document.getElementById("telemetry-lst");
     if (lstEl) {
       lstEl.textContent = calculateLST();
     }
@@ -42,14 +42,14 @@
 
   // 3. SYSTEM LOADER DISMISSAL (Infinity Screen from Screenshot 163)
   function initLoaderDismiss() {
-    const loader = document.getElementById('loader');
+    const loader = document.getElementById("loader");
     if (!loader) return;
 
     let dismissed = false;
     const dismiss = () => {
       if (dismissed) return;
       dismissed = true;
-      loader.classList.add('is-dismissed');
+      loader.classList.add("is-dismissed");
       setTimeout(() => {
         loader.remove();
       }, 850);
@@ -58,33 +58,41 @@
     // Keep visible for 1.3s to enjoy the infinity loop portal, or dismiss on click/key
     const minTimer = setTimeout(dismiss, 1350);
 
-    window.addEventListener('keydown', () => {
-      clearTimeout(minTimer);
-      dismiss();
-    }, { once: true });
+    window.addEventListener(
+      "keydown",
+      () => {
+        clearTimeout(minTimer);
+        dismiss();
+      },
+      { once: true }
+    );
 
-    loader.addEventListener('click', () => {
-      clearTimeout(minTimer);
-      dismiss();
-    }, { once: true });
+    loader.addEventListener(
+      "click",
+      () => {
+        clearTimeout(minTimer);
+        dismiss();
+      },
+      { once: true }
+    );
   }
 
   // 4. INTERACTIVE FFI CODE SWITCHER (Flagship 01)
   function initCodeSwitchers() {
-    const tabs = document.querySelectorAll('[data-code-tab]');
-    const views = document.querySelectorAll('[data-code-view]');
+    const tabs = document.querySelectorAll("[data-code-tab]");
+    const views = document.querySelectorAll("[data-code-view]");
 
     tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const target = tab.getAttribute('data-code-tab');
-        tabs.forEach((t) => t.classList.remove('button--primary'));
-        tab.classList.add('button--primary');
+      tab.addEventListener("click", () => {
+        const target = tab.getAttribute("data-code-tab");
+        tabs.forEach((t) => t.classList.remove("button--primary"));
+        tab.classList.add("button--primary");
 
         views.forEach((view) => {
-          if (view.getAttribute('data-code-view') === target) {
-            view.classList.remove('is-hidden');
+          if (view.getAttribute("data-code-view") === target) {
+            view.classList.remove("is-hidden");
           } else {
-            view.classList.add('is-hidden');
+            view.classList.add("is-hidden");
           }
         });
       });
@@ -93,37 +101,41 @@
 
   // 5. STAGGERED SCROLL REVEAL (IntersectionObserver based)
   function initScrollReveals() {
-    const elements = document.querySelectorAll('.reveal-on-scroll');
+    const elements = document.querySelectorAll(".reveal-on-scroll");
     if (!elements.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
+    );
 
     elements.forEach((el) => observer.observe(el));
   }
 
   // DOM INIT
-  
+
   // 6. CARD STACKING INTERACTIVE SCROLL RUNTIME (Fallback & Enhancement)
   function initCardStack() {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) return;
 
     // Check if browser already supports native CSS view-timeline
-    const supportsCSSViewTimeline = window.CSS && CSS.supports && (
-      CSS.supports('animation-timeline: view()') || CSS.supports('view-timeline-name: --stack')
-    );
+    const supportsCSSViewTimeline =
+      window.CSS &&
+      CSS.supports &&
+      (CSS.supports("animation-timeline: view()") || CSS.supports("view-timeline-name: --stack"));
     if (supportsCSSViewTimeline) {
       return; // Handled smoothly by browser CSS engine
     }
 
-    const cards = Array.from(document.querySelectorAll('.stack-card'));
+    const cards = Array.from(document.querySelectorAll(".stack-card"));
     if (cards.length === 0) return;
 
     let ticking = false;
@@ -158,10 +170,10 @@
           totalFactor += overlaps[k];
         }
 
-        const scale = Math.max(0.70, 1 - (totalFactor * 0.035));
-        const brightness = Math.max(0.42, 1 - (totalFactor * 0.12));
+        const scale = Math.max(0.7, 1 - totalFactor * 0.035);
+        const brightness = Math.max(0.42, 1 - totalFactor * 0.12);
 
-        const inner = card.querySelector('.card-inner');
+        const inner = card.querySelector(".card-inner");
         if (inner) {
           inner.style.transform = `scale(${scale})`;
           inner.style.filter = `brightness(${brightness})`;
@@ -179,39 +191,39 @@
       }
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     updateCardStack();
   }
 
   function initCardExpand() {
-    document.querySelectorAll('.stack-card .card-inner').forEach((inner) => {
-      if (inner.querySelector('.stack-card__toggle')) return;
+    document.querySelectorAll(".stack-card .card-inner").forEach((inner) => {
+      if (inner.querySelector(".stack-card__toggle")) return;
 
-      const card = inner.closest('.stack-card');
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'stack-card__toggle';
-      btn.setAttribute('aria-expanded', 'false');
-      btn.textContent = 'READ MORE';
+      const card = inner.closest(".stack-card");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "stack-card__toggle";
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "READ MORE";
       inner.appendChild(btn);
 
-      btn.addEventListener('click', () => {
-        const open = !card.classList.contains('is-expanded');
-        document.querySelectorAll('.stack-card.is-expanded').forEach((other) => {
+      btn.addEventListener("click", () => {
+        const open = !card.classList.contains("is-expanded");
+        document.querySelectorAll(".stack-card.is-expanded").forEach((other) => {
           if (other === card) return;
-          other.classList.remove('is-expanded');
-          const otherBtn = other.querySelector('.stack-card__toggle');
+          other.classList.remove("is-expanded");
+          const otherBtn = other.querySelector(".stack-card__toggle");
           if (otherBtn) {
-            otherBtn.setAttribute('aria-expanded', 'false');
-            otherBtn.textContent = 'READ MORE';
+            otherBtn.setAttribute("aria-expanded", "false");
+            otherBtn.textContent = "READ MORE";
           }
         });
-        card.classList.toggle('is-expanded', open);
-        btn.setAttribute('aria-expanded', String(open));
-        btn.textContent = open ? 'SHOW LESS' : 'READ MORE';
+        card.classList.toggle("is-expanded", open);
+        btn.setAttribute("aria-expanded", String(open));
+        btn.textContent = open ? "SHOW LESS" : "READ MORE";
 
-        if (window.__observatoryLenis && typeof window.__observatoryLenis.resize === 'function') {
+        if (window.__observatoryLenis && typeof window.__observatoryLenis.resize === "function") {
           window.__observatoryLenis.resize();
         }
       });
@@ -219,26 +231,26 @@
   }
 
   function initMobileNav() {
-    const header = document.querySelector('.observatory-nav');
-    const toggle = document.querySelector('.observatory-nav__toggle');
-    const nav = document.getElementById('primary-nav');
+    const header = document.querySelector(".observatory-nav");
+    const toggle = document.querySelector(".observatory-nav__toggle");
+    const nav = document.getElementById("primary-nav");
     if (!header || !toggle || !nav) return;
 
-    const desktopQuery = window.matchMedia('(width >= 768px)');
-    const navLinks = nav.querySelectorAll('a');
+    const desktopQuery = window.matchMedia("(width >= 768px)");
+    const navLinks = nav.querySelectorAll("a");
     const headerHashLinks = header.querySelectorAll('a[href^="#"]');
-    const main = document.getElementById('main-content');
-    const footer = document.querySelector('.command-footer');
+    const main = document.getElementById("main-content");
+    const footer = document.querySelector(".command-footer");
 
     const headerOffset = () => -(header.getBoundingClientRect().height + 12);
 
     const focusSection = (target) => {
-      const heading = target.matches('h1, h2') ? target : target.querySelector('h1, h2');
+      const heading = target.matches("h1, h2") ? target : target.querySelector("h1, h2");
       if (!heading) {
         toggle.focus();
         return;
       }
-      if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      if (!heading.hasAttribute("tabindex")) heading.setAttribute("tabindex", "-1");
       heading.focus({ preventScroll: true });
     };
 
@@ -248,17 +260,17 @@
         if (window.__observatoryLenis) {
           window.__observatoryLenis.scrollTo(target, { offset, duration: 1.15, force: true });
         } else {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
         focusSection(target);
       });
     };
 
     const setOpen = (open) => {
-      header.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      document.body.classList.toggle('nav-open', open);
+      header.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("nav-open", open);
       if (main) main.inert = open;
       if (footer) footer.inert = open;
       if (window.__observatoryLenis) {
@@ -270,14 +282,14 @@
       }
     };
 
-    toggle.addEventListener('click', () => {
-      setOpen(!header.classList.contains('is-open'));
+    toggle.addEventListener("click", () => {
+      setOpen(!header.classList.contains("is-open"));
     });
 
     headerHashLinks.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        const href = link.getAttribute('href');
-        if (!href || href === '#') return;
+      link.addEventListener("click", (event) => {
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
         const target = document.querySelector(href);
         if (!target) return;
         event.preventDefault();
@@ -287,8 +299,8 @@
       });
     });
 
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && header.classList.contains('is-open')) {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && header.classList.contains("is-open")) {
         setOpen(false);
         toggle.focus();
       }
@@ -297,14 +309,14 @@
     const onBreakpoint = (event) => {
       if (event.matches) setOpen(false);
     };
-    if (typeof desktopQuery.addEventListener === 'function') {
-      desktopQuery.addEventListener('change', onBreakpoint);
-    } else if (typeof desktopQuery.addListener === 'function') {
+    if (typeof desktopQuery.addEventListener === "function") {
+      desktopQuery.addEventListener("change", onBreakpoint);
+    } else if (typeof desktopQuery.addListener === "function") {
       desktopQuery.addListener(onBreakpoint);
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     updateTelemetryClock();
     setInterval(updateTelemetryClock, 1000);
     initLoaderDismiss();
@@ -313,7 +325,7 @@
     initCardStack();
     initCardExpand();
     initMobileNav();
-    const yearEl = document.getElementById('current-year');
+    const yearEl = document.getElementById("current-year");
     if (yearEl) {
       yearEl.textContent = new Date().getFullYear();
     }
@@ -405,7 +417,7 @@ function initCanvasStarfield() {
     for (let i = 0; i < stars.length; i++) {
       const s = stars[i];
       s.x += s.dx;
-      s.y += s.dy + (accelY * s.speedFactor);
+      s.y += s.dy + accelY * s.speedFactor;
 
       if (s.x < 0) s.x = width;
       if (s.x > width) s.x = 0;
@@ -433,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 8. QUANTUM INERTIAL ACCELERATION SCROLL ENGINE (Quartic Easing & Micro-Velocity Physics)
 function initLenis() {
-  if (typeof window.Lenis === 'undefined') return;
+  if (typeof window.Lenis === "undefined") return;
 
   const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
@@ -441,17 +453,17 @@ function initLenis() {
   const lenis = new window.Lenis({
     duration: isMobile ? 0.95 : 1.35,
     easing: (t) => 1 - Math.pow(1 - t, 4),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
+    orientation: "vertical",
+    gestureOrientation: "vertical",
     smoothWheel: true,
     smoothTouch: false,
     wheelMultiplier: 1.08,
-    touchMultiplier: 1.0,
+    touchMultiplier: 1.0
   });
   window.__observatoryLenis = lenis;
 
   // Track scroll velocity in real time (scroll progress & back-to-top are handled purely by CSS scroll-timeline)
-  lenis.on('scroll', (e) => {
+  lenis.on("scroll", (e) => {
     window.__scrollVelocity = e.velocity || 0;
   });
 
@@ -463,21 +475,21 @@ function initLenis() {
 
   // Smooth internal anchor scroll integration with cubic-bezier inertial glide
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId && targetId !== '#') {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId && targetId !== "#") {
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           e.preventDefault();
-          const nav = document.querySelector('.observatory-nav');
-          if (document.body.classList.contains('nav-open')) {
+          const nav = document.querySelector(".observatory-nav");
+          if (document.body.classList.contains("nav-open")) {
             return;
           }
           const offset = nav ? -(nav.getBoundingClientRect().height + 12) : -80;
           lenis.scrollTo(targetEl, {
             offset,
             duration: 1.6,
-            easing: (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2,
+            easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
             force: true
           });
         }
@@ -488,16 +500,18 @@ function initLenis() {
 
 // 9. INTERACTIVE MOUSE SPOTLIGHT (Dynamic Glassmorphic Sheen)
 function initMouseSpotlight() {
-  const cards = document.querySelectorAll('.arsenal-card, .archive-card, .career-card, .stack-card, .card-inner');
+  const cards = document.querySelectorAll(
+    ".arsenal-card, .archive-card, .career-card, .stack-card, .card-inner"
+  );
   if (!cards.length) return;
 
   cards.forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
+    card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
     });
   });
 }
