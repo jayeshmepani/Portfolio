@@ -1,46 +1,6 @@
-/**
- * THE SCIENTIFIC OBSERVATORY :: LIGHTWEIGHT TELEMETRY & MOTION RUNTIME
- * ====================================================================
- */
-
 (function () {
     "use strict";
 
-    // 1. ASTROLABE LOCAL SIDEREAL TIME & TITHI CALCULATION
-    // Coordinates for Kutch, Gujarat: 23.2420° N, 69.6669° E (Longitude: 69.6669 deg)
-    const LONGITUDE_DEG = 69.6669;
-
-    function calculateLST() {
-        const now = new Date();
-        // Julian Date calculation
-        const jd = now.getTime() / 86400000 + 2440587.5;
-        const d = jd - 2451545.0; // Days since J2000.0
-
-        // Greenwich Mean Sidereal Time (GMST) in degrees
-        let gmst = 280.46061837 + 360.98564736629 * d;
-        gmst = ((gmst % 360) + 360) % 360;
-
-        // Local Sidereal Time (LST) = GMST + Longitude
-        const lstDeg = (((gmst + LONGITUDE_DEG) % 360) + 360) % 360;
-
-        // Convert degrees to hours, minutes, seconds
-        const lstHoursTotal = lstDeg / 15.0;
-        const h = Math.floor(lstHoursTotal);
-        const m = Math.floor((lstHoursTotal - h) * 60);
-        const s = Math.floor(((lstHoursTotal - h) * 60 - m) * 60);
-
-        const pad = (n) => String(n).padStart(2, "0");
-        return `${pad(h)}h ${pad(m)}m ${pad(s)}s`;
-    }
-
-    function updateTelemetryClock() {
-        const lstEl = document.getElementById("telemetry-lst");
-        if (lstEl) {
-            lstEl.textContent = calculateLST();
-        }
-    }
-
-    // 3. SYSTEM LOADER DISMISSAL (Infinity Screen from Screenshot 163)
     function initLoaderDismiss() {
         const loader = document.getElementById("loader");
         if (!loader) return;
@@ -55,7 +15,6 @@
             }, 850);
         };
 
-        // Keep visible for 1.3s to enjoy the infinity loop portal, or dismiss on click/key
         const minTimer = setTimeout(dismiss, 1350);
 
         window.addEventListener(
@@ -77,29 +36,6 @@
         );
     }
 
-    // 4. INTERACTIVE FFI CODE SWITCHER (Flagship 01)
-    function initCodeSwitchers() {
-        const tabs = document.querySelectorAll("[data-code-tab]");
-        const views = document.querySelectorAll("[data-code-view]");
-
-        tabs.forEach((tab) => {
-            tab.addEventListener("click", () => {
-                const target = tab.getAttribute("data-code-tab");
-                tabs.forEach((t) => t.classList.remove("button--primary"));
-                tab.classList.add("button--primary");
-
-                views.forEach((view) => {
-                    if (view.getAttribute("data-code-view") === target) {
-                        view.classList.remove("is-hidden");
-                    } else {
-                        view.classList.add("is-hidden");
-                    }
-                });
-            });
-        });
-    }
-
-    // 5. STAGGERED SCROLL REVEAL (IntersectionObserver based)
     function initScrollReveals() {
         const elements = document.querySelectorAll(".reveal-on-scroll");
         if (!elements.length) return;
@@ -119,21 +55,17 @@
         elements.forEach((el) => observer.observe(el));
     }
 
-    // DOM INIT
-
-    // 6. CARD STACKING INTERACTIVE SCROLL RUNTIME (Fallback & Enhancement)
     function initCardStack() {
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (prefersReducedMotion) return;
 
-        // Check if browser already supports native CSS view-timeline
         const supportsCSSViewTimeline =
             window.CSS &&
             CSS.supports &&
             (CSS.supports("animation-timeline: view()") ||
                 CSS.supports("view-timeline-name: --stack"));
         if (supportsCSSViewTimeline) {
-            return; // Handled smoothly by browser CSS engine
+            return;
         }
 
         const cards = Array.from(document.querySelectorAll(".stack-card"));
@@ -324,23 +256,49 @@
         }
     }
 
+    function initNavTracker() {
+        const sections = document.querySelectorAll("main > section[id]");
+        const navLinks = document.querySelectorAll(".observatory-nav__link");
+        if (!sections.length || !navLinks.length) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        navLinks.forEach((link) => {
+                            const href = link.getAttribute("href");
+                            if (href === `#${id}`) {
+                                link.setAttribute("aria-current", "page");
+                            } else {
+                                link.removeAttribute("aria-current");
+                            }
+                        });
+                    }
+                });
+            },
+            { threshold: 0.3, rootMargin: "-10% 0px -40% 0px" }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
-        updateTelemetryClock();
-        setInterval(updateTelemetryClock, 1000);
         initLoaderDismiss();
-        initCodeSwitchers();
         initScrollReveals();
         initCardStack();
         initCardExpand();
         initMobileNav();
+        initNavTracker();
+        initLenis();
+        initTypewriter();
+        initCanvasStarfield();
+        initMouseSpotlight();
         const yearEl = document.getElementById("current-year");
-        if (yearEl) {
-            yearEl.textContent = new Date().getFullYear();
-        }
+        yearEl?.setAttribute("datetime", (yearEl.textContent = new Date().getFullYear()));
     });
 })();
 
-// 6. TYPEWRITER EFFECT
 function initTypewriter() {
     const el = document.getElementById("typewriter-text");
     if (!el) return;
@@ -353,6 +311,11 @@ function initTypewriter() {
         "Multilingual NLP Specialist",
         "Eternal Systems Learner"
     ];
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        el.textContent = roles[0];
+        return;
+    }
 
     let roleIdx = 0;
     let charIdx = 0;
@@ -371,12 +334,12 @@ function initTypewriter() {
         let speed = isDeleting ? 30 : 60;
 
         if (!isDeleting && charIdx === current.length) {
-            speed = 1800; // pause at end
+            speed = 1800;
             isDeleting = true;
         } else if (isDeleting && charIdx === 0) {
             isDeleting = false;
             roleIdx = (roleIdx + 1) % roles.length;
-            speed = 400; // pause before next
+            speed = 400;
         }
 
         setTimeout(type, speed);
@@ -385,11 +348,10 @@ function initTypewriter() {
     type();
 }
 
-// Global motion telemetry state
 window.__scrollVelocity = 0;
 
-// 7. LIGHTWEIGHT CANVAS STARFIELD (Coupled to Scroll Velocity & Inertial Acceleration)
 function initCanvasStarfield() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const canvas = document.getElementById("stars-canvas");
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -443,21 +405,12 @@ function initCanvasStarfield() {
     requestAnimationFrame(render);
 }
 
-// Attach to DOMContentLoaded
-document.addEventListener("DOMContentLoaded", () => {
-    initLenis();
-    initTypewriter();
-    initCanvasStarfield();
-    initMouseSpotlight();
-});
-
-// 8. QUANTUM INERTIAL ACCELERATION SCROLL ENGINE (Quartic Easing & Micro-Velocity Physics)
 function initLenis() {
     if (typeof window.Lenis === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
 
-    // Quartic acceleration curve (e => 1 - Math.pow(1 - e, 4)) matching the original high-momentum feel
     const lenis = new window.Lenis({
         duration: isMobile ? 0.95 : 1.35,
         easing: (t) => 1 - Math.pow(1 - t, 4),
@@ -470,7 +423,6 @@ function initLenis() {
     });
     window.__observatoryLenis = lenis;
 
-    // Track scroll velocity in real time (CSS scroll-timeline with Lenis fallback)
     const progressBar = document.getElementById("scroll-progress");
     const supportsCSSScrollTimeline =
         typeof CSS !== "undefined" &&
@@ -490,7 +442,6 @@ function initLenis() {
     }
     requestAnimationFrame(raf);
 
-    // Smooth internal anchor scroll integration with cubic-bezier inertial glide
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
             const targetId = this.getAttribute("href");
@@ -515,7 +466,6 @@ function initLenis() {
     });
 }
 
-// 9. INTERACTIVE MOUSE SPOTLIGHT (Dynamic Glassmorphic Sheen)
 function initMouseSpotlight() {
     const cards = document.querySelectorAll(
         ".arsenal-card, .archive-card, .career-card, .stack-card, .card-inner"
