@@ -15,7 +15,7 @@
             }, 850);
         };
 
-        const minTimer = setTimeout(dismiss, 1350);
+        const minTimer = setTimeout(dismiss, 750);
 
         window.addEventListener(
             "keydown",
@@ -43,13 +43,14 @@
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
+                    if (entry.isIntersecting && entry.intersectionRatio >= 0.05) {
                         entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
+                    } else if (!entry.isIntersecting || entry.intersectionRatio === 0) {
+                        entry.target.classList.remove("is-visible");
                     }
                 });
             },
-            { threshold: 0.08, rootMargin: "0px 0px -30px 0px" }
+            { threshold: [0, 0.05], rootMargin: "0px 0px -30px 0px" }
         );
 
         elements.forEach((el) => observer.observe(el));
@@ -287,11 +288,26 @@
         const lazyPlayers = document.querySelectorAll("lottie-player[data-src]");
         if (!lazyPlayers.length) return;
 
+        const loadPlayer = (player) => {
+            const src = player.getAttribute("data-src");
+            if (!src) return;
+            player.removeAttribute("data-src");
+            if (typeof player.load === "function") {
+                player.load(src);
+            } else {
+                player.setAttribute("src", src);
+            }
+            player.addEventListener(
+                "ready",
+                () => {
+                    if (typeof player.play === "function") player.play();
+                },
+                { once: true }
+            );
+        };
+
         if (!("IntersectionObserver" in window)) {
-            lazyPlayers.forEach((player) => {
-                const src = player.getAttribute("data-src");
-                if (src) player.setAttribute("src", src);
-            });
+            lazyPlayers.forEach(loadPlayer);
             return;
         }
 
@@ -299,17 +315,12 @@
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        const player = entry.target;
-                        const src = player.getAttribute("data-src");
-                        if (src) {
-                            player.setAttribute("src", src);
-                            player.removeAttribute("data-src");
-                        }
-                        observer.unobserve(player);
+                        loadPlayer(entry.target);
+                        observer.unobserve(entry.target);
                     }
                 });
             },
-            { rootMargin: "300px 0px" }
+            { rootMargin: "400px 0px" }
         );
 
         lazyPlayers.forEach((player) => observer.observe(player));
