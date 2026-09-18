@@ -1,9 +1,11 @@
 import os
+import sys
+
 try:
     import docx
 except ImportError:
     print("Installing python-docx...")
-    os.system("pip install python-docx")
+    os.system(f"{sys.executable} -m pip install python-docx")
     import docx
 
 from docx import Document
@@ -244,6 +246,30 @@ def add_bullet(doc, text):
     return p
 
 
+def add_bullet_with_parts(doc, parts):
+    """Manual hanging bullet with mixed text and hyperlinks.
+    parts: list of tuples (text, url) where url can be None for plain text.
+    """
+    p = doc.add_paragraph()
+    set_spacing(p, before=0, after=40, line=240)
+    set_indent(p, start=360, hanging=216)
+
+    run = p.add_run()
+    style_run(run, size=BULLET_SIZE)
+    t_bullet = OxmlElement("w:t")
+    t_bullet.text = "•"
+    run._r.append(t_bullet)
+    run._r.append(OxmlElement("w:tab"))
+
+    for text, url in parts:
+        if url:
+            add_hyperlink(p, text, url)
+        else:
+            r = p.add_run(text)
+            style_run(r, size=BULLET_SIZE)
+    return p
+
+
 def add_experience_header(doc, company, dates, role, location, first=False):
     # Company (Bold 11pt) ... Dates (Bold 11pt, right-aligned)
     # First entry after the section heading has before=0; later entries keep 240.
@@ -335,6 +361,8 @@ def build_docx():
     style_run(p_contact.add_run("+91 8347205513  |  "))
     add_hyperlink(p_contact, "jayeshmepani777@gmail.com", "mailto:jayeshmepani777@gmail.com")
     style_run(p_contact.add_run("  |  "))
+    add_hyperlink(p_contact, "jayeshmepani.site", "https://jayeshmepani.site/")
+    style_run(p_contact.add_run("  |  "))
     add_hyperlink(p_contact, "linkedin.com/in/jayeshmepani", "https://linkedin.com/in/jayeshmepani/")
     style_run(p_contact.add_run("  |  "))
     add_hyperlink(p_contact, "github.com/jayeshmepani", "https://github.com/jayeshmepani/")
@@ -345,25 +373,27 @@ def build_docx():
     set_spacing(p_sum, before=0, after=120, line=240)
     set_indent(p_sum, start=0)
     style_run(p_sum.add_run(
-        "Full-stack developer and Computer Science graduate with hands-on experience in web development, "
-        "mobile development and data science. Proven track record building high-precision computation engines "
-        "and open-source libraries published on Packagist and PyPI. Adept at delivering clean, maintainable "
-        "code and integrating AI APIs into production systems."
+        "Versatile Full-Stack & Systems Engineer with a B.Tech in Computer Science and deep expertise spanning "
+        "systems-level programming, scalable backend architectures, high-performance computing, and cross-runtime "
+        "integration. Proven track record designing and publishing production-grade open-source libraries, building "
+        "high-throughput distributed APIs, and architecting data-intensive and intelligent software solutions. Strong "
+        "foundation in software engineering fundamentals, dedicated to building performant, secure, and resilient "
+        "systems from low-level runtimes to modern cloud and web platforms."
     ))
 
     # ── Technical Skills ──────────────────────────────────────────────────────
     add_section_header(doc, "Technical Skills")
     skills_data = [
-        ("Languages", "Python, PHP, JavaScript, Java, Go, C, C++, Dart"),
-        ("Frontend", "React, Next.js, Vue.js, AngularJS, Tailwind CSS, Bootstrap, SCSS, WebGL, HTML, CSS"),
-        ("Backend", "Laravel, Node.js, Express.js, FastAPI, Flask, Django, JWT"),
-        ("Databases", "MySQL, PostgreSQL, SQLite, MongoDB"),
-        ("Mobile", "Flutter, Android (WebView/Java)"),
-        ("DevOps & Tools", "Git, GitHub, GitLab, Nginx, Postman, Vite, VS Code, Linux, PowerShell"),
-        ("AI/ML & Data Science", "PyTorch, TensorFlow, Keras, OpenCV, scikit-learn, Pandas, HuggingFace, NLP"),
+        ("Languages", "C, C++, Rust, Python, PHP, JavaScript, TypeScript, Dart, Go, Java"),
+        ("Compilers & Systems", "AST Parsers, FFI, Shared Libraries"),
+        ("Frontend", "React, Next.js, Vue.js, AngularJS, Tailwind CSS, WebGL"),
+        ("Backend", "Laravel, Node.js, Express.js, FastAPI, Flask, Django"),
+        ("Databases", "PostgreSQL, MySQL, SQLite, MongoDB"),
+        ("Mobile", "Flutter, Dart, Android (Java)"),
+        ("Cloud & DevOps", "Linux, Nginx, GitLab CI, Render, Vercel"),
+        ("AI & Data Science", "Deep Learning (PyTorch, TensorFlow), NLP, Computer Vision, Scikit-learn"),
         ("AI Media & Generative", "Stable Diffusion, GFPGAN, RealESRGAN, CodeFormer, UVR"),
-        ("Design & Creative", "Figma, Adobe Creative Cloud, Canva"),
-        ("Other", "FFI, ctypes, REST API design, SQLAlchemy, Alembic, AI API integration"),
+        ("Design", "Figma, Adobe Creative Cloud"),
     ]
     for cat, val in skills_data:
         p = doc.add_paragraph()
@@ -376,139 +406,116 @@ def build_docx():
     add_section_header(doc, "Work Experience")
 
     add_experience_header(doc, "Shreesoftech", "Dec 2024 – Present", "Laravel Developer", "Hybrid", first=True)
+    add_bullet(doc, "Engineered production web architectures with Laravel, optimizing complex database workflows, Eloquent ORM queries, and RESTful API endpoints.")
+    add_bullet(doc, "Implemented secure backend services, database migrations, and caching layers to ensure high availability and robust performance.")
 
     add_experience_header(doc, "WRTeam", "May 2024 – June 2024", "PHP Developer Intern", "Remote")
-    add_bullet(doc, "Engineered and maintained a PHP web application, improving codebase efficiency by 50%+ through dynamic fetching optimizations that significantly reduced file count and code volume.")
-    add_bullet(doc, "Collaborated on integrating front-end and back-end systems, accelerating delivery timelines.")
+    add_bullet(doc, "Engineered and tested PHP web applications, improving codebase efficiency by 50%+ through dynamic fetching optimizations that significantly reduced file count and code volume.")
+    add_bullet(doc, "Built secure API endpoints and collaborated on cross-functional agile teams to deliver commercial client solutions.")
 
     add_experience_header(doc, "CodSoft", "Jun 2024 – Jul 2024", "Flutter Developer Intern", "Remote")
-    add_bullet(doc, "Built 4 cross-platform Flutter applications covering diverse domains, enhancing user engagement through polished UI and smooth navigation.")
+    add_bullet(doc, "Built 4 cross-platform mobile applications with Flutter and Dart, implementing responsive UI components, state management, and local SQLite data persistence.")
     add_bullet(doc, "Conducted code reviews and optimized app performance across Android and iOS targets.")
 
     add_experience_header(doc, "CodSoft", "May 2024 – Jun 2024", "Python Programming Intern", "Remote")
-    add_bullet(doc, "Developed 5 Python applications spanning user management, game logic, security, arithmetic, and task management, implementing 3 new features that improved robustness by 30%.")
+    add_bullet(doc, "Constructed algorithmic automation suites, object-oriented software architectures, and backend scripting solutions across 5 Python applications spanning user management, game logic, security, and task management.")
 
     add_experience_header(doc, "CodSoft", "May 2024 – Jun 2024", "Data Science Intern", "Remote")
-    add_bullet(doc, "Analyzed 5 datasets and produced 55 visualizations using Pandas, Matplotlib, and Seaborn to surface actionable insights.")
-    add_bullet(doc, "Trained and evaluated predictive ML models achieving 85%+ accuracy.")
+    add_bullet(doc, "Developed machine learning pipelines, predictive statistical modeling, and exploratory data analysis with Pandas, NumPy, and Scikit-learn across 5 datasets (55+ visualizations), achieving 85%+ model accuracy.")
 
     # ── Projects ──────────────────────────────────────────────────────────────
     add_section_header(doc, "Projects")
 
     add_project_header(
         doc,
-        "Panchang Core",
-        [("GitHub", "https://github.com/jayeshmepani/panchang-core")],
-        "PHP, FFI, JME Ephemeris",
+        "Panchang Core & JPL Ephemeris Ecosystem",
+        [
+            ("GitHub (Core)", "https://github.com/jayeshmepani/panchang-core"),
+            ("GitHub (C Engine)", "https://github.com/jayeshmepani/jpl-ephemeris"),
+        ],
+        "C, CALCEPH, JPL DE440, PHP ext-ffi, Python ctypes, Dart FFI",
         first=True,
     )
-    add_bullet(doc, "Architected a high-precision Hindu calendar engine using a JME Ephemeris FFI bridge and IEEE 754 doubles to compute Tithi, Nakṣatra, Yoga, Karaṇa, and 30 Muhūrtas with 0.001 arcsecond accuracy.")
-    add_bullet(doc, "Implemented KalaNirnaya logic orchestrating 323 unique festivals and 85 unique vrat identities across Amanta/Purnimanta calendars with English, Hindi, and Gujarati output.")
-    add_bullet(doc, "Designed a framework-agnostic architecture deployable as a standalone CLI or as a Laravel package via native Facades and Service Providers.")
-
-    add_project_header(
+    add_bullet(doc, "Architected an authentic Vedic Panchanga calculation engine powered by an independent C ephemeris engine (204 public functions, 462 constants) implementing JPL DE405/DE440, CALCEPH, Moshier, VSOP87, and ELP2000 theories.")
+    add_bullet(doc, "Computed Tithi, Nakṣatra, Yoga, Karaṇa, and 30 Muhūrtas with 0.001 arcsecond precision, orchestrating 336 unique festival identities and 126 vrat identities across Amanta and Purnimanta calendars.")
+    add_bullet_with_parts(
         doc,
-        "JME Ephemeris Engine",
-        [("GitHub", "https://github.com/jayeshmepani/jpl-ephemeris")],
-        "C, Astronomy, JPL, CALCEPH",
-    )
-    add_bullet(doc, "Developed an independent MIT-licensed ephemeris engine with 204 public functions and 462 constants.")
-    add_bullet(doc, "Implemented multiple computation backends including JPL/CALCEPH, Moshier, VSOP87, ELP2000, and Meeus.")
-    add_bullet(doc, "Designed strict engine-selection architecture supporting JPL, MOSHIER, VSOP_ELP_MEEUS, and AUTO modes.")
-    add_bullet(doc, "Built the native foundation powering PHP, Python, and Dart language ecosystems.")
-
-    add_project_header(
-        doc,
-        "JME Cross-Language SDK Ecosystem",
         [
-            ("GitHub (PHP)", "https://github.com/jayeshmepani/jpl-moshier-ephemeris-php"),
-            ("GitHub (Python)", "https://github.com/jayeshmepani/jpl-moshier-ephemeris-python"),
-            ("GitHub (Dart)", "https://github.com/jayeshmepani/jpl-moshier-ephemeris-dart"),
+            ("Distributed zero-overhead FFI bindings and precompiled native binaries across ", None),
+            ("PHP", "https://github.com/jayeshmepani/jpl-moshier-ephemeris-php"),
+            (" (ext-ffi), ", None),
+            ("Python", "https://github.com/jayeshmepani/jpl-moshier-ephemeris-python"),
+            (" (ctypes), and ", None),
+            ("Dart/Flutter", "https://github.com/jayeshmepani/jpl-moshier-ephemeris-dart"),
+            (" (dart:ffi).", None),
         ],
-        "PHP, Python, Dart, C",
     )
-    add_bullet(doc, "Published native bindings and packaged runtimes across PHP, Python, and Flutter/Dart.")
-    add_bullet(doc, "Delivered consistent access to the same C API across multiple programming languages and operating systems.")
-    add_bullet(doc, "Eliminated manual compilation by distributing platform-specific binaries for end users.")
 
     add_project_header(
         doc,
-        "Hindu Scriptures",
+        "CSSForge — Lossless CSS AST Refactoring Engine",
         [
-            ("GitHub", "https://github.com/jayeshmepani/HinduScriptures/"),
-            ("Live demo", "https://hinduscriptures.onrender.com/"),
+            ("GitHub", "https://github.com/jayeshmepani/cssforge"),
         ],
-        "Node.js, Express.js, JavaScript, Google Gemini AI, Java",
+        "Rust (Edition 2024), Ratatui TUI, AST Parser, Crates.io",
     )
-    add_bullet(doc, "Built a full-text scripture search platform with AI-powered search via Google Gemini 2.5 Flash API and URL-rewriting-based multilingual translation through Google Translate.")
-    add_bullet(doc, "Delivered both a web app and an Android WebView app, serving original Devanagari content with on-demand translation to multiple languages.")
+    add_bullet(doc, "Engineered a safety-first, lossless semantic CSS refactoring engine and interactive terminal workbench in Rust (Edition 2024), published on Crates.io.")
+    add_bullet(doc, "Implemented 28 AST transformation rules modernizing flat legacy CSS into native nesting, Range media queries, @layer consolidation, and :is() factoring with zero declaration loss.")
+    add_bullet(doc, "Supported raw stylesheets and embedded style blocks within Blade, Vue, Svelte, Astro, Twig, ERB, and HTML templates.")
 
     add_project_header(
         doc,
-        "Enhanced Precision Grayscale Converter",
+        "Lipimala — Deterministic Indic Script & Vedic Transliteration",
         [
-            ("GitHub (Web)", "https://github.com/jayeshmepani/PrecisionGrayscaleConverter-Web"),
-            ("Live demo", "https://precisiongrayscaleconverter-web.onrender.com/"),
+            ("GitHub", "https://github.com/jayeshmepani/indic-script-converter"),
         ],
-        "Python, FastAPI, Tailwind CSS, JavaScript, Axios",
+        "Dart, Node.js, Python, PHP, Unicode Vedic Tags",
     )
-    add_bullet(doc, "Engineered a FastAPI backend supporting 7 color-science modes (Rec.709, BT.601, BT.2100, HSL, HSV, L*a*b*, Gamma) with 8/16-bit output in PNG, JPEG, HEIC, TIFF, WEBP, and BMP.")
-    add_bullet(doc, "Developed a responsive frontend with Axios-powered live previews, drag-and-drop, and EXIF/ICC preservation toggles; fully self-hosted with no third-party uploads.")
+    add_bullet(doc, "Built a deterministic Indic transliteration suite published synchronously across 4 package registries: pub.dev (Dart), npm (JavaScript/TypeScript), PyPI (Python), and Packagist (PHP).")
+    add_bullet(doc, "Solved Brahmic many-to-one collapse via structured TransliterationResult envelopes and checksummed LIT1: Unicode-Tag metadata trailers.")
+    add_bullet(doc, "Enabled direct Devanagari ↔ Gujarati conversion with first-class preservation of Vedic svara markers (Udatta, Anudatta, Svarita).")
+
+    add_project_header(
+        doc,
+        "Hindu Scriptures: Digital Repository & AI Scholar",
+        [
+            ("GitHub (Web)", "https://github.com/jayeshmepani/HinduScriptures/"),
+            ("GitHub (Android)", "https://github.com/jayeshmepani/hindu-scripture-apk"),
+        ],
+        "Node.js, Express 5, Google Gemini AI, JavaScript, Java (Android APK)",
+    )
+    add_bullet(doc, "Developed a Sanātana Dharma digital repository indexing sacred literature across the Vedas, Upanishads, Bhagavad Gita, and Puranas with verse-level lexical search and Sanskrit root morphology.")
+    add_bullet(doc, "Integrated contextual AI scripture analysis using Google Gemini and delivered both a responsive web platform and a native Android application.")
 
     add_project_header(
         doc,
         "Laravel Gemini AI Translation Extractor",
-        [("GitHub", "https://github.com/jayeshmepani/laravel-gemini-translator")],
-        "PHP, Laravel, Google Gemini AI, spatie/fork",
-    )
-    add_bullet(doc, "Developed an Artisan command that scans Blade/PHP/JS/TS sources for translation keys, generates Laravel PHP & JSON language files via Gemini 2.0 Flash-Lite, and runs concurrent fork-based requests with auto-retry on rate limits.")
-
-    add_project_header(
-        doc,
-        "PostalKit",
-        [("GitHub", "https://github.com/jayeshmepani/postalkit")],
-        "Python, ctypes, FFI, libpostal",
-    )
-    add_bullet(doc, "Delivered a strict 1:1 ctypes wrapper for the OpenVenues libpostal C library (46 functions, 10 structs, 42 flags) with first-run auto-download of ~2 GB ML models and OS-specific binaries, bypassing all manual toolchain setup.")
-
-    add_project_header(
-        doc,
-        "Literary & Linguistic Poetry Analyzer",
-        [("GitHub", "https://github.com/jayeshmepani/poetry-analyzer")],
-        "Python, FastAPI, PyTorch, HuggingFace",
-    )
-    add_bullet(doc, "Designed an async FastAPI backend orchestrating 1.5 GB+ HuggingFace Transformer models, spaCy, NLTK, and Stanza for multilingual sentiment, emotion, and phonological classification.")
-    add_bullet(doc, "Implemented SQLAlchemy ORM connection pooling for SQLite, PostgreSQL, and MySQL/MariaDB, with Alembic schema migrations for production-ready scalability.")
-
-    add_project_header(
-        doc,
-        "Crop & Nutrient Recommendations Apps",
         [
-            ("GitHub (Crop)", "https://github.com/jayeshmepani/Crop-Recommendations-App"),
-            ("GitHub (Nutrient)", "https://github.com/jayeshmepani/Nutrient-Recommendations-App"),
+            ("GitHub", "https://github.com/jayeshmepani/laravel-gemini-translator"),
         ],
-        "Python, Flask, Google Gemini AI, HTML, CSS, JavaScript",
+        "PHP 8.3+, Laravel 11–13, Gemini AI, Fork (pcntl), Symfony Process, C kernel32 FFI",
     )
-    add_bullet(doc, "Built two Flask applications powered by Google Gemini 2.0 Flash Lite: one recommending crops by factoring in weather, soil, and water needs; the other generating personalized daily caloric and nutrient targets from user biometric inputs.")
+    add_bullet(doc, "Built an enterprise Laravel translation engine with dual-platform concurrency: Unix pcntl fork workers and Windows parallel Symfony Process workers, featuring smart token chunking, automatic rate-limit backoff, and atomic file writes.")
+    add_bullet(doc, "Engineered a native Windows interactive TUI via C kernel32.dll FFI console hooks providing arrow-key navigation and multi-select prompts matching Laravel Prompts, alongside a web-based Translation Manager with script-fault detection across a 249-language catalog.")
 
     add_project_header(
         doc,
-        "Recipe App",
-        [("GitHub", "https://github.com/jayeshmepani/Recipe-App")],
-        "Flutter",
+        "Poetry Analyzer — Deep Linguistic Analysis Engine",
+        [("GitHub", "https://github.com/jayeshmepani/poetry-analyzer-app")],
+        "Python, FastAPI, PyTorch, Transformers, spaCy, Stanza, HuggingFace, Alembic",
     )
-    add_bullet(doc, "Built a cross-platform Flutter recipe browser with search, filtering, and a user-friendly detail view.")
+    add_bullet(doc, "Designed an async FastAPI backend orchestrating 1.5 GB+ HuggingFace Transformer models, spaCy, Stanza, and Indic NLP to compute poetic meter, rhyme patterns, phonology, and semantic motifs with sub-second latency.")
+    add_bullet(doc, "Implemented SQLAlchemy ORM connection pooling for SQLite, PostgreSQL, and MySQL, with Alembic schema migrations.")
 
     add_project_header(
         doc,
-        "Portfolio",
+        "SQL to Laravel Migration Compiler",
         [
-            ("GitHub", "https://github.com/jayeshmepani/Portfolio"),
-            ("Live demo", "https://jayeshmepani.github.io/Portfolio/"),
+            ("GitHub", "https://github.com/jayeshmepani/sql-to-laravel"),
         ],
-        "HTML, CSS, JavaScript, Tailwind CSS",
+        "JavaScript, Web Workers, Topological Sort, Laravel 11/12/13",
     )
-    add_bullet(doc, "Designed and deployed a personal portfolio showcasing projects, skills, and professional background.")
+    add_bullet(doc, "Built a privacy-first, client-side compiler transforming raw SQL database dumps into idiomatic Laravel 11–13 migrations and seeders with topological foreign-key dependency resolution, vector/spatial type mapping, and environment-aware dialect generation across MySQL, PostgreSQL, MariaDB, and SQLite.")
 
     # ── Education ─────────────────────────────────────────────────────────────
     add_section_header(doc, "Education")
@@ -532,7 +539,7 @@ def build_docx():
     style_run(p_deg.add_run("2021 – 2025"))
 
     p_cgpa = doc.add_paragraph()
-    set_spacing(p_cgpa, before=0, after=80, line=None)
+    set_spacing(p_cgpa, before=0, after=40, line=None)
     set_indent(p_cgpa, start=0)
     style_run(p_cgpa.add_run("CGPA: 7.29"))
 
@@ -555,8 +562,8 @@ def build_docx():
     set_spacing(p_soft, before=0, after=0, line=240)
     set_indent(p_soft, start=0)
     style_run(p_soft.add_run(
-        "Analytical Thinking, Problem Solving, Attention to Detail, Research, Time Management, "
-        "Adaptability, Communication, Teamwork, Leadership"
+        "Analytical Thinking, Problem Solving, Systems Architecture, Attention to Detail, Technical Research, "
+        "Time Management, Adaptability, Communication, Teamwork, Leadership"
     ))
 
     output_path = "cv_native.docx"
