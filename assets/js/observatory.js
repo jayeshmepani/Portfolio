@@ -12,10 +12,10 @@
             loader.classList.add("is-dismissed");
             setTimeout(() => {
                 loader.remove();
-            }, 1050);
+            }, 850);
         };
 
-        const minTimer = setTimeout(dismiss, 1200);
+        const minTimer = setTimeout(dismiss, 750);
 
         window.addEventListener(
             "keydown",
