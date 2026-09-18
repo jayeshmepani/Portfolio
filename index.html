@@ -125,10 +125,12 @@
                         <h1 id="hero-name" class="hero-billboard__name">Jayesh Patel</h1>
                         <div class="hero-billboard__subtitle" aria-live="polite">
                             <span class="hero-billboard__prompt" aria-hidden="true">&gt;</span>
-                            <span id="typewriter-text">Full-Stack &amp; App Developer</span>
-                            <span class="typewriter-cursor">&nbsp;</span>
+                            <span class="hero-billboard__typewriter-wrap">
+                                <span id="typewriter-text">Full-Stack &amp; App Developer</span>
+                                <span class="typewriter-cursor" aria-hidden="true">&nbsp;</span>
+                            </span>
                         </div>
-                        <p class="hero-billboard__lead">Specializing in high-performance web systems, astronomical computation engines, Rust AST compilers, and multilingual transliteration runtimes. Crafting precision software from low-level C to production cloud architectures.</p>
+                        <p class="hero-billboard__lead">Full-Stack &amp; Systems Engineer specializing in high-throughput web platforms, low-level compilers, and precision computation engines. Turning deep CS fundamentals into resilient, production-grade systems.</p>
                         <div class="cluster hero-billboard__actions">
                             <a href="#flagships" class="button button--primary" title="Explore Flagships">
                                 <span>Explore Flagships</span>
@@ -522,7 +524,10 @@
                     <header class="section-header reveal-on-scroll">
                         <div class="section-header__tag">02 // Technical Capabilities</div>
                         <h2 id="arsenal-title" class="section-header__title">Technical Arsenal</h2>
-                        <p class="section-header__lead">A comprehensive matrix of 65+ production languages, frameworks, AI pipelines, and systems runtimes engineered across production deployments.</p>
+                        <p class="section-header__lead">
+                            A comprehensive matrix of 65+ production languages, frameworks, AI pipelines, and systems runtimes engineered across production deployments.
+                            <span class="text-nowrap">✦ Featured core stack highlighted.</span>
+                        </p>
                     </header>
                     <div class="arsenal-bento">
                         <div class="arsenal-card bento-span-8 reveal-on-scroll stagger-1">
@@ -539,7 +544,7 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: var(--accent-astrolabe); border-color: rgba(251, 146, 60, 0.3); background: rgba(251, 146, 60, 0.08)">PRIMARY_MATRIX</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-c-plain" style="color: #60a5fa" aria-hidden="true"></i>
                                     C (C99/C11)
                                 </span>
@@ -547,19 +552,19 @@
                                     <i class="devicon-cplusplus-plain" style="color: #3b82f6" aria-hidden="true"></i>
                                     C++
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-rust-original" style="color: #f97316" aria-hidden="true"></i>
                                     Rust
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-python-plain" style="color: #eab308" aria-hidden="true"></i>
                                     Python
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-php-plain" style="color: #c084fc" aria-hidden="true"></i>
                                     PHP
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-javascript-plain" style="color: #facc15" aria-hidden="true"></i>
                                     JavaScript
                                 </span>
@@ -607,15 +612,15 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: var(--accent-lavender); border-color: rgba(192, 132, 252, 0.3); background: rgba(192, 132, 252, 0.08)">NEURAL</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-pytorch-original" style="color: #ef4444" aria-hidden="true"></i>
                                     PyTorch
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-tensorflow-original" style="color: #fb923c" aria-hidden="true"></i>
                                     TensorFlow
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-scikitlearn-plain" style="color: #fdba74" aria-hidden="true"></i>
                                     Scikit-learn
                                 </span>
@@ -655,7 +660,7 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.08)">LOW_LEVEL</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="ri-cpu-line" style="color: var(--accent-astrolabe)" aria-hidden="true"></i>
                                     C-FFI / ext-ffi
                                 </span>
@@ -667,7 +672,7 @@
                                     <i class="ri-share-forward-line" style="color: #38bdf8" aria-hidden="true"></i>
                                     Dart ffi
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="ri-speed-up-line" style="color: #4ade80" aria-hidden="true"></i>
                                     Memory Safety
                                 </span>
@@ -691,11 +696,11 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: var(--accent-telemetry); border-color: rgba(45, 212, 191, 0.3); background: rgba(45, 212, 191, 0.08)">REACTIVE_UI</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-react-original" style="color: #38bdf8" aria-hidden="true"></i>
                                     React
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-nextjs-original" style="color: #f3f4f6" aria-hidden="true"></i>
                                     Next.js
                                 </span>
@@ -715,7 +720,7 @@
                                     <i class="devicon-css3-plain" style="color: #3b82f6" aria-hidden="true"></i>
                                     CSS3
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-tailwindcss-original" style="color: #22d3ee" aria-hidden="true"></i>
                                     Tailwind
                                 </span>
@@ -727,7 +732,7 @@
                                     <i class="devicon-sass-original" style="color: #f472b6" aria-hidden="true"></i>
                                     SASS / SCSS
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-threejs-original" style="color: #f3f4f6" aria-hidden="true"></i>
                                     Three.js
                                 </span>
@@ -751,11 +756,11 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.08)">RUNTIME</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-laravel-original" style="color: #ef4444" aria-hidden="true"></i>
                                     Laravel
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-nodejs-plain" style="color: #22c55e" aria-hidden="true"></i>
                                     Node.js
                                 </span>
@@ -771,11 +776,11 @@
                                     <i class="devicon-flask-original" style="color: #f3f4f6" aria-hidden="true"></i>
                                     Flask
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-fastapi-plain" style="color: #2dd4bf" aria-hidden="true"></i>
                                     FastAPI
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="ri-shield-keyhole-line" style="color: #facc15" aria-hidden="true"></i>
                                     JWT &amp; OAuth2
                                 </span>
@@ -795,7 +800,7 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.08)">CROSS_PLATFORM</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-flutter-plain" style="color: #38bdf8" aria-hidden="true"></i>
                                     Flutter
                                 </span>
@@ -803,7 +808,7 @@
                                     <i class="devicon-androidstudio-plain" style="color: #4ade80" aria-hidden="true"></i>
                                     Android Studio
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-dart-plain" style="color: #38bdf8" aria-hidden="true"></i>
                                     Dart
                                 </span>
@@ -827,15 +832,15 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: #60a5fa; border-color: rgba(96, 165, 250, 0.3); background: rgba(96, 165, 250, 0.08)">PERSISTENCE</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-mysql-original" style="color: #3b82f6" aria-hidden="true"></i>
                                     MySQL
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-mongodb-plain" style="color: #22c55e" aria-hidden="true"></i>
                                     MongoDB
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-postgresql-plain" style="color: #60a5fa" aria-hidden="true"></i>
                                     PostgreSQL
                                 </span>
@@ -859,7 +864,7 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: #ec4899; border-color: rgba(236, 72, 153, 0.3); background: rgba(236, 72, 153, 0.08)">GENERATIVE</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="ri-image-line" style="color: #f472b6" aria-hidden="true"></i>
                                     Stable Diffusion
                                 </span>
@@ -871,7 +876,7 @@
                                     <i class="ri-hd-line" style="color: #38bdf8" aria-hidden="true"></i>
                                     RealESRGAN
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="ri-code-box-line" style="color: #4ade80" aria-hidden="true"></i>
                                     CodeFormer
                                 </span>
@@ -883,7 +888,7 @@
                                     <i class="ri-mic-line" style="color: #f87171" aria-hidden="true"></i>
                                     UVR (Vocal)
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-figma-plain" style="color: #c084fc" aria-hidden="true"></i>
                                     Figma
                                 </span>
@@ -911,11 +916,11 @@
                                 <span class="hero-billboard__badge" style="font-size: 0.65rem; color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); background: rgba(34, 211, 238, 0.08)">PRODUCTION</span>
                             </div>
                             <div class="arsenal-card__list">
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-docker-plain" style="color: #3b82f6" aria-hidden="true"></i>
                                     Docker
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-git-plain" style="color: #ef4444" aria-hidden="true"></i>
                                     Git
                                 </span>
@@ -923,11 +928,11 @@
                                     <i class="devicon-gitlab-plain" style="color: #f97316" aria-hidden="true"></i>
                                     GitLab CI
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-linux-plain" style="color: #f3f4f6" aria-hidden="true"></i>
                                     Linux (Debian)
                                 </span>
-                                <span class="skill-pill">
+                                <span class="skill-pill skill-pill--featured">
                                     <i class="devicon-nginx-original" style="color: #22c55e" aria-hidden="true"></i>
                                     Nginx
                                 </span>
@@ -1282,7 +1287,17 @@
                     <header class="section-header">
                         <div class="section-header__tag">05 // Terminal Session</div>
                         <h2 id="contact-title" class="section-header__title">Initialize Collaboration</h2>
+                        <p class="section-header__lead">Open for select engineering roles, systems consulting, and technical collaboration. Stationed in India (UTC+5:30), operating globally across distributed architectures.</p>
                     </header>
+                    <div class="hero-billboard__sig-wrap" style="justify-content: center">
+                        <p class="hero-billboard__sig" style="margin-inline: auto">
+                            <span class="hero-billboard__sig-kicker">STATUS // READY</span>
+                            <span class="hero-billboard__sig-label">
+                                <span class="observatory-nav__pulse" aria-hidden="true"></span>
+                                Available for High-Impact Engineering Roles &amp; Systems Architecture
+                            </span>
+                        </p>
+                    </div>
                     <div class="cluster contact-actions">
                         <a href="mailto:jayeshmepani777@gmail.com" class="button button--primary button--contact" title="Primary Email">
                             <svg width="17" height="17" aria-hidden="true" focusable="false">
