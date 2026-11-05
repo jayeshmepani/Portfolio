@@ -90,7 +90,7 @@
             <div class="loader-portal__center"><lottie-player aria-hidden="true" src="assets/lottie/infinity-loading.json" background="transparent" speed="1" loop autoplay class="loader-portal-logo lottie-fill"></lottie-player></div>
             <div class="loader-portal__title" role="status" aria-live="polite">INITIALIZING SYSTEM...</div>
         </div>
-        <canvas id="stars-canvas"></canvas>
+        <canvas id="stars-canvas" aria-hidden="true"></canvas>
         <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
         <header class="observatory-nav" role="banner">
             <div class="container observatory-nav__inner">
@@ -534,7 +534,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: var(--accent-astrolabe)">
                                         <use href="assets/img/icons.svg#icon-code"></use>
                                     </svg>
-                                    <span>Languages</span>
+                                    <h3 class="arsenal-card__title">Languages</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: var(--accent-astrolabe); border-color: rgba(251, 146, 60, 0.3); background: rgba(251, 146, 60, 0.08)">PRIMARY_MATRIX</span>
                             </div>
@@ -587,7 +587,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: var(--accent-lavender)">
                                         <use href="assets/img/icons.svg#icon-cpu"></use>
                                     </svg>
-                                    <span>AI &amp; Data Science</span>
+                                    <h3 class="arsenal-card__title">AI &amp; Data Science</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: var(--accent-lavender); border-color: rgba(192, 132, 252, 0.3); background: rgba(192, 132, 252, 0.08)">NEURAL</span>
                             </div>
@@ -616,7 +616,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: var(--accent-astrolabe)">
                                         <use href="assets/img/icons.svg#icon-cpu"></use>
                                     </svg>
-                                    <span>Compilers &amp; Systems</span>
+                                    <h3 class="arsenal-card__title">Compilers &amp; Systems</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.08)">LOW_LEVEL</span>
                             </div>
@@ -641,7 +641,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: var(--accent-telemetry)">
                                         <use href="assets/img/icons.svg#icon-layout"></use>
                                     </svg>
-                                    <span>Frontend &amp; UI Architecture</span>
+                                    <h3 class="arsenal-card__title">Frontend &amp; UI Architecture</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: var(--accent-telemetry); border-color: rgba(45, 212, 191, 0.3); background: rgba(45, 212, 191, 0.08)">REACTIVE_UI</span>
                             </div>
@@ -678,7 +678,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: #f87171">
                                         <use href="assets/img/icons.svg#icon-server"></use>
                                     </svg>
-                                    <span>Backend &amp; Runtimes</span>
+                                    <h3 class="arsenal-card__title">Backend &amp; Runtimes</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.08)">RUNTIME</span>
                             </div>
@@ -715,7 +715,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: #38bdf8">
                                         <use href="assets/img/icons.svg#icon-smartphone"></use>
                                     </svg>
-                                    <span>Mobile Engineering</span>
+                                    <h3 class="arsenal-card__title">Mobile Engineering</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.08)">CROSS_PLATFORM</span>
                             </div>
@@ -740,7 +740,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: #3b82f6">
                                         <use href="assets/img/icons.svg#icon-database"></use>
                                     </svg>
-                                    <span>Databases &amp; Stores</span>
+                                    <h3 class="arsenal-card__title">Databases &amp; Stores</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: #60a5fa; border-color: rgba(96, 165, 250, 0.3); background: rgba(96, 165, 250, 0.08)">PERSISTENCE</span>
                             </div>
@@ -769,7 +769,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: #ec4899">
                                         <use href="assets/img/icons.svg#icon-sparkles"></use>
                                     </svg>
-                                    <span>AI Media &amp; Design</span>
+                                    <h3 class="arsenal-card__title">AI Media &amp; Design</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: #ec4899; border-color: rgba(236, 72, 153, 0.3); background: rgba(236, 72, 153, 0.08)">GENERATIVE</span>
                             </div>
@@ -810,7 +810,7 @@
                                     <svg width="20" height="20" aria-hidden="true" focusable="false" style="color: #22d3ee">
                                         <use href="assets/img/icons.svg#icon-terminal"></use>
                                     </svg>
-                                    <span>Cloud &amp; DevOps</span>
+                                    <h3 class="arsenal-card__title">Cloud &amp; DevOps</h3>
                                 </div>
                                 <span class="hero-billboard__badge" style="color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); background: rgba(34, 211, 238, 0.08)">PRODUCTION</span>
                             </div>
@@ -852,7 +852,7 @@
                         <article class="archive-card archive-card--hero reveal-on-scroll stagger-1" aria-labelledby="archive-heading-crop">
                             <div class="stack archive-card__body">
                                 <div class="archive-card__header">
-                                    <div class="archive-card__icon"><img src="assets/img/crop recommendations app.webp" width="512" height="502" alt="Crop Recommendations Icon" loading="lazy" decoding="async" fetchpriority="low" /></div>
+                                    <div class="archive-card__icon"><img src="assets/img/crop%20recommendations%20app.webp" width="512" height="502" alt="Crop Recommendations Icon" loading="lazy" decoding="async" fetchpriority="low" /></div>
                                     <div>
                                         <div class="cluster archive-card__title-row">
                                             <h3 id="archive-heading-crop" class="archive-card__title">Crop Recommendations</h3>
@@ -974,7 +974,7 @@
                         <article class="archive-card archive-card--hero reveal-on-scroll stagger-5" aria-labelledby="archive-heading-nutrient">
                             <div class="stack archive-card__body">
                                 <div class="archive-card__header">
-                                    <div class="archive-card__icon"><img src="assets/img/nutrient recommendations app.webp" width="512" height="512" alt="Nutrient Recommendations Icon" loading="lazy" decoding="async" fetchpriority="low" /></div>
+                                    <div class="archive-card__icon"><img src="assets/img/nutrient%20recommendations%20app.webp" width="512" height="512" alt="Nutrient Recommendations Icon" loading="lazy" decoding="async" fetchpriority="low" /></div>
                                     <div>
                                         <div class="cluster archive-card__title-row">
                                             <h3 id="archive-heading-nutrient" class="archive-card__title">Nutrient Recommendations</h3>
@@ -1230,7 +1230,7 @@
             <section class="signature-horizon" aria-label="Signature &amp; Dedication">
                 <div class="signature-horizon__mark reveal-on-scroll">
                     <div class="signature-horizon__lock">
-                        <div class="astronaut-float" aria-hidden="true"><lottie-player aria-hidden="true" src="assets/lottie/Astronaut - Light Theme.json" background="transparent" speed="0.5" loop autoplay class="lottie-fill"></lottie-player></div>
+                        <div class="astronaut-float" aria-hidden="true"><lottie-player aria-hidden="true" data-src="assets/lottie/Astronaut - Light Theme.json" background="transparent" speed="0.5" loop autoplay class="lottie-fill"></lottie-player></div>
                         <span class="signature-text" translate="no">Jayesh Patel</span>
                     </div>
                 </div>
@@ -1241,7 +1241,7 @@
                 <div class="command-footer__actions">
                     <a href="#home" class="scroll-top-trigger" aria-label="Launch back to top">
                         <div class="scroll-top-trigger__icon">
-                            <lottie-player aria-hidden="true" src="assets/lottie/Rocket launching.json" background="transparent" speed="0.8" loop autoplay class="lottie-fill"></lottie-player>
+                            <lottie-player aria-hidden="true" data-src="assets/lottie/Rocket launching.json" background="transparent" speed="0.8" loop autoplay class="lottie-fill"></lottie-player>
                         </div>
                         <span>ASCEND_TO_ORBIT</span>
                         <span class="sr-only">(Back to top)</span>

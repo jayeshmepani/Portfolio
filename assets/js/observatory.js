@@ -139,6 +139,8 @@
             btn.type = "button";
             btn.className = "stack-card__toggle";
             btn.setAttribute("aria-expanded", "false");
+            const heading = card.querySelector("h3")?.textContent?.trim() || "Project";
+            btn.setAttribute("aria-label", `Read more about ${heading}`);
             btn.textContent = "READ MORE";
             inner.appendChild(btn);
 
@@ -151,11 +153,14 @@
                     if (otherBtn) {
                         otherBtn.setAttribute("aria-expanded", "false");
                         otherBtn.textContent = "READ MORE";
+                        const otherHeading = other.querySelector("h3")?.textContent?.trim() || "Project";
+                        otherBtn.setAttribute("aria-label", `Read more about ${otherHeading}`);
                     }
                 });
                 card.classList.toggle("is-expanded", open);
                 btn.setAttribute("aria-expanded", String(open));
                 btn.textContent = open ? "SHOW LESS" : "READ MORE";
+                btn.setAttribute("aria-label", `${open ? "Show less" : "Read more"} about ${heading}`);
 
                 if (
                     window.__observatoryLenis &&
@@ -545,7 +550,7 @@ function initLenis() {
     if (typeof window.Lenis === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
 
     const lenis = new window.Lenis({
         duration: isMobile ? 0.95 : 1.35,

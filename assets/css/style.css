@@ -1198,6 +1198,15 @@
         }
     }
 
+    .arsenal-card__title {
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+    }
+
     .arsenal-card__list {
         display: flex;
         flex-wrap: wrap;
