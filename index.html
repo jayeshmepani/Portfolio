@@ -168,7 +168,7 @@
                                         <span class="marvel-hud-telemetry">SYS_NODE // 01 · ASTRONOMICAL_EPHEMERIS</span>
                                     </div>
                                     <div class="marvel-hud-header__right">
-                                        <span class="marvel-hud-coords">JPL DE440 · CALCEPH · 0.001″ PRECISION</span>
+                                        <span class="marvel-hud-coords">JPL DE440/DE441 · CALCEPH · REFERENCE-VALIDATED</span>
                                         <span class="marvel-hud-bracket">[ 01/06 ]</span>
                                     </div>
                                 </div>
@@ -176,10 +176,10 @@
                                     <div class="stack">
                                         <div class="cluster">
                                             <span class="flagship-card__tag" style="color: var(--accent-astrolabe)">Astrophysics &amp; Systems</span>
-                                            <span class="hero-billboard__badge hero-billboard__badge--sm">0.001″ Arcsec Precision</span>
+                                            <span class="hero-billboard__badge hero-billboard__badge--sm">354 Festivals · 126 Vrats</span>
                                         </div>
                                         <h3 id="flagship-heading-panchang">Panchang Core &amp; JPL Ephemeris Ecosystem</h3>
-                                        <p>Authentic high-precision Vedic Panchanga calculation engine powered by JME Ephemeris in C. Implements JPL DE405/DE440, CALCEPH, Moshier, VSOP87, and ELP2000 analytical theories. Computes 336 unique festival identities, 126 unique vrat identities, Muhurta windows, and lunar phase transitions with 0.001″ accuracy. Synchronized across PHP 8.3+, Python, and Dart with zero-overhead FFI bindings.</p>
+                                        <p>Authentic high-precision Vedic Panchanga calculation engine powered by JME Ephemeris in C. Supports JPL DE440/DE441 kernels through CALCEPH, alongside Moshier, VSOP87, ELP2000, and Meeus analytical engines. Computes 354 unique festival identities and 126 unique vrat identities, plus muhurta windows, eclipse data, and lunar-phase transitions. The native JME API exposes 225 public C functions and 478 public constants; validation results are documented by calculation family. PHP 8.3+, Python, and Dart bindings use direct FFI.</p>
                                         <div class="cluster project-card-marvel__tech">
                                             <span class="skill-pill">C</span>
                                             <span class="skill-pill">CALCEPH / JPL DE440</span>
@@ -266,7 +266,7 @@
                                             <span class="hero-billboard__badge hero-billboard__badge--sm">Crates.io Workspace</span>
                                         </div>
                                         <h3 id="flagship-heading-cssforge">CSSForge — Lossless CSS AST Refactoring Engine (Rust)</h3>
-                                        <p>A safety-first, lossless semantic CSS refactoring engine and interactive terminal workbench written in Rust (Edition 2024). Features 28 AST transformation rules modernizing flat legacy CSS into native nesting, Range media queries, @layer consolidation, and :is() factoring with zero declaration loss. Supports raw stylesheets and embedded template blocks in Blade, Vue, Svelte, Astro, Twig, ERB, and HTML.</p>
+                                        <p>A safety-first, lossless semantic CSS refactoring engine and interactive terminal workbench written in Rust (Edition 2024). Features 28 AST transformation rules modernizing flat legacy CSS into native nesting, Range media queries, @layer consolidation, and :is() factoring with zero declaration loss. Supports raw stylesheets and embedded template blocks in Blade, Vue, Svelte, Astro, Twig, ERB, Handlebars, and HTML.</p>
                                         <div class="cluster project-card-marvel__tech">
                                             <span class="skill-pill">Rust (Edition 2024)</span>
                                             <span class="skill-pill">Ratatui TUI</span>
@@ -382,13 +382,13 @@
                                             <span class="hero-billboard__badge hero-billboard__badge--sm">Web Platform &amp; Android App</span>
                                         </div>
                                         <h3 id="flagship-heading-hinduscriptures">Hindu Scriptures: Digital Repository &amp; AI Scholar</h3>
-                                        <p>Sanātana Dharma digital repository and interactive AI scholar indexing sacred literature across the Vedas, Upanishads, Bhagavad Gita, and Puranas. Features verse-level lexical indexing, Sanskrit root morphology, contextual AI scripture analysis powered by Google Gemini, and a dedicated native Android application.</p>
+                                        <p>Sanātana Dharma digital repository with 10,001 files in DharmicData (9,061 JSON and 940 PDFs), spanning Vedic literature, Itihāsa, Purāṇas, Gītās, Upāṅgas, devotional collections, and more. Includes category/title browsing, PDF reading, and a Gemini-powered scholar interface with image queries and Google Search grounding. The companion Android app is a WebView shell for the hosted platform; corpus and catalogue restructuring remain active work.</p>
                                         <div class="cluster project-card-marvel__tech">
                                             <span class="skill-pill">Node.js</span>
                                             <span class="skill-pill">Express 5</span>
                                             <span class="skill-pill">Google Gemini AI</span>
                                             <span class="skill-pill">Vanilla JavaScript</span>
-                                            <span class="skill-pill">Android Java (APK)</span>
+                                            <span class="skill-pill">Android WebView (APK)</span>
                                             <span class="skill-pill">Render Cloud</span>
                                         </div>
                                     </div>
@@ -440,7 +440,7 @@
                                             <span class="flagship-card__tag" style="color: #ef4444">DevOps &amp; AI Tooling</span>
                                             <span class="hero-billboard__badge hero-billboard__badge--sm" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.08)">Packagist Package</span>
                                         </div>
-                                        <h3 id="flagship-heading-laravelgemini">Laravel Gemini Translator — Concurrency AST Engine</h3>
+                                        <h3 id="flagship-heading-laravelgemini">Laravel Gemini Translator — Concurrency &amp; Translation Manager</h3>
                                         <p>Enterprise-grade Laravel translation engine with dual-platform concurrency: Unix pcntl fork and Windows parallel Symfony Process workers. Features a native Windows interactive TUI with arrow-key navigation and multi-select prompts via C kernel32.dll FFI (matching Laravel Prompts on Linux/macOS), plus a browser Translation Manager (/translations-manager) with script-fault detection across a 249-language catalog.</p>
                                         <div class="cluster project-card-marvel__tech">
                                             <span class="skill-pill">PHP 8.3+</span>
@@ -495,7 +495,7 @@
                                             <span class="hero-billboard__badge hero-billboard__badge--sm">Transformer Pipeline</span>
                                         </div>
                                         <h3 id="flagship-heading-poetryanalyzer">Poetry Analyzer — Deep Linguistic Analysis Engine</h3>
-                                        <p>Literary and linguistic analysis engine for poetry powered by 1.5GB Transformer models, spaCy, Stanza, and Indic NLP. Computes complex poetic meter, rhyme patterns, phonology, and semantic motifs with sub-second API response times.</p>
+                                        <p>Literary and linguistic analysis platform for computational prosody, rhyme, phonology, sentiment, and semantic motifs. Combines FastAPI with PyTorch/Transformers, spaCy, Stanza, and Indic NLP; the repository documents Python 3.12 as its runtime baseline.</p>
                                         <div class="cluster project-card-marvel__tech">
                                             <span class="skill-pill">Python / FastAPI</span>
                                             <span class="skill-pill">PyTorch / Transformers</span>
@@ -890,7 +890,7 @@
                                         <div class="archive-card__tech">Python · OpenCV · FastAPI · CustomTkinter</div>
                                     </div>
                                 </div>
-                                <p class="archive-card__desc">Multi-algorithm image processing with 11 precision grayscale desaturations (Rec.709, Rec.601, Luminance, Decomposition), available as a web app and desktop GUI.</p>
+                                <p class="archive-card__desc">Desktop image-processing application with 7 selectable grayscale modes (Rec. 601, Rec. 709, Rec. 2100, Gamma, L*a*b* L*, HSL Lightness, and HSV Value), batch processing, and 8-/16-bit export. A companion FastAPI web app provides single-image and batch conversion with transparency and metadata controls.</p>
                             </div>
                             <div class="cluster archive-card__actions">
                                 <a href="https://precisiongrayscaleconverter-web.onrender.com/" target="_blank" rel="noopener noreferrer" class="skill-pill" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3)" title="Live Web App">
@@ -954,7 +954,7 @@
                                         <div class="archive-card__tech">C (libpostal) · Python · C-FFI / ctypes · PyPI</div>
                                     </div>
                                 </div>
-                                <p class="archive-card__desc">High-performance Python wrapper around libpostal in C. Normalizes and parses international postal addresses with statistical ML models across 60+ languages using zero-copy ctypes memory.</p>
+                                <p class="archive-card__desc">Python ctypes wrapper around libpostal's native C address-processing stack. Provides direct access to international address parsing, expansion, language classification, tokenization, normalization, and duplicate-detection APIs, with prebuilt runtimes for Linux, macOS, and Windows.</p>
                             </div>
                             <div class="cluster archive-card__actions">
                                 <a href="https://pypi.org/project/postalkit/" target="_blank" rel="noopener noreferrer" class="skill-pill" style="color: #a78bfa; border-color: rgba(167, 139, 250, 0.3)" title="PyPI Package">
@@ -1012,7 +1012,7 @@
                                         <div class="archive-card__tech">Flutter · Dart · Material Design · Cupertino Icons</div>
                                     </div>
                                 </div>
-                                <p class="archive-card__desc">Cross-platform mobile culinary app built with Flutter and Dart, featuring recipe discovery, category filtering (Vegetarian &amp; Non-Vegetarian), step-by-step cooking directions, and fluid Material Design interactions.</p>
+                                <p class="archive-card__desc">Flutter recipe browser with 76 bundled recipes, title search, vegetarian/non-vegetarian and food/drink filters, alphabetical sorting, and ingredient plus step-by-step instruction screens.</p>
                             </div>
                             <div class="cluster archive-card__actions">
                                 <a href="https://github.com/jayeshmepani/Recipe-App" target="_blank" rel="noopener noreferrer" class="skill-pill" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3)" title="GitHub Repository">
